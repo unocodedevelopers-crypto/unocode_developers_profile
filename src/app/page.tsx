@@ -69,9 +69,7 @@ export default function Page() {
                     </div>
                 </div>
             </dialog>
-            <div id="layout-gradient"
-                className="fixed left-0 top-0 -z-50 h-[85vh] w-full bg-gradient-to-br opacity-25 from-[#c6147f] to-[#33044A]">
-            </div>
+
             <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-clip"><a
                 className="group fixed top-2 left-4 z-50 flex h-14 items-center gap-2 rounded-sm px-5 !opacity-100 lg:gap-3 text-white"
                 href="/">

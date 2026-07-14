@@ -36,7 +36,10 @@ export default function RootLayout({
       <head>
         <Script src="/api.js" data-cfasync="false" strategy="beforeInteractive" />
       </head>
-      <body suppressHydrationWarning className="font-nunito text-white selection:bg-[#F8F7F7] selection:text-[#161616] min-h-full flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="font-nunito text-white selection:bg-[#F8F7F7] selection:text-[#161616] min-h-full flex flex-col"
+            style={{ background: "linear-gradient(to right, #24243e, #302b63, #0f0c29)", backgroundColor: "#0f0c29" }}>
+        {children}
+      </body>
     </html>
   );
 }
