@@ -15,7 +15,7 @@ export default function Footer() {
             <path d="M 2 9 L 2 16 A 8 8 0 0 0 18 16 L 18 4 L 14 4 L 14 16 A 4 4 0 0 1 6 16 L 6 9 Z" />
             <path fillRule="evenodd" clipRule="evenodd" d="M 20 4 L 20 24 L 24 24 A 10 10 0 0 0 34 14 A 10 10 0 0 0 24 4 Z M 24 8 L 24 20 A 6 6 0 0 0 30 14 A 6 6 0 0 0 24 8 Z" />
           </svg>
-          <p className="px-2 py-1 text-center">Web design from Cologne, NRW</p>
+          <p className="px-2 py-1 text-center">Web design from Madurai, TN</p>
           <div className="flex gap-5 sm:gap-7">
             <a className="group relative rounded-sm px-2 py-1" href="/legal-notice">Legal notice 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-0.5 group-hover:-left-1.5 motion-reduce:-left-1.5">
