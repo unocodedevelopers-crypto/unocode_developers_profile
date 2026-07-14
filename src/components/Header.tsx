@@ -86,26 +86,6 @@ export default function Header() {
 
 
                                     </svg></span></a><a
-                                        className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/services"><span
-                                            className="relative">Pricing <div
-                                                className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
-                                    </div></span> <span
-                                        className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                            fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                            strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
-                                        <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-
-
-                                    </svg></span> <span
-                                        className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                            fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                            strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
-                                        <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-
-
-                                    </svg></span></a><a
                                         className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/about"><span
                                             className="relative">About <div
                                                 className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
