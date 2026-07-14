@@ -1,0 +1,99 @@
+'use client';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+/* eslint-disable */
+
+export default function ContactPage() {
+  return (
+    <>
+
+        <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-clip"><Header />
+            <div className="flex flex-col items-center pt-32 px-5 lg:px-10 gap-16 md:gap-32 w-full max-w-[1200px] mx-auto min-h-screen">
+                <div className="w-full max-w-xl 2xl:max-w-2xl mt-10 md:mt-20">
+                    <div className="mb-10">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inria-sans mb-4">Tell me about your brand</h1>
+                        <p className="text-gray-200 text-lg mb-6">You value close collaboration, clear communication and full transparency? Then you've come to the right place.</p>
+                        <div className="flex flex-col gap-3 text-gray-200">
+                            <div className="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                <a href="mailto:leon@obermann-webdesign.de" className="hover:text-white transition-colors">leon@obermann-webdesign.de</a>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <a href="tel:+4915679543182" className="hover:text-white transition-colors">+49 156 7954 3182</a>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="relative flex w-full justify-center"><span className="absolute -top-20" id="contact"></span>
+                        <form className="flex w-full max-w-xl flex-col gap-6 2xl:max-w-2xl 2xl:gap-7" method="POST">
+                            <div className="flex flex-col gap-2 2xl:gap-3 false"><label
+                                    className="text-sm font-semibold tracking-wide 2xl:text-base" htmlFor="name">Name
+                                    </label> <input
+                                    className="rounded-xl border border-gray-300 bg-transparent p-2 pl-5 text-sm tracking-wide transition-colors placeholder:tracking-wide placeholder:text-gray-600 2xl:text-base  "
+                                    type="text" name="name" id="name" placeholder="Your name" maxLength={100}
+                                    tabIndex={0} /></div>
+                            <div className="flex flex-col gap-2 2xl:gap-3 false"><label
+                                    className="text-sm font-semibold tracking-wide 2xl:text-base" htmlFor="email">Email
+                                    </label> <input
+                                    className="rounded-xl border border-gray-300 bg-transparent p-2 pl-5 text-sm tracking-wide transition-colors placeholder:tracking-wide placeholder:text-gray-600 2xl:text-base  "
+                                    type="email" name="email" id="email" placeholder="Your email address" required
+                                    maxLength={100} tabIndex={0} /></div>
+                            <div className="flex flex-col gap-2 2xl:gap-3 false"><label
+                                    className="text-sm font-semibold tracking-wide 2xl:text-base" htmlFor="phone">Phone
+                                    </label> <input
+                                    className="rounded-xl border border-gray-300 bg-transparent p-2 pl-5 text-sm tracking-wide transition-colors placeholder:tracking-wide placeholder:text-gray-600 2xl:text-base  "
+                                    type="tel" name="phone" id="phone" placeholder="Your phone" maxLength={100}
+                                    tabIndex={0} /></div>
+                            <div className="flex flex-col gap-2 2xl:gap-3 absolute left-0 top-0 -z-10 h-0 w-0 opacity-0">
+                                <label className="text-sm font-semibold tracking-wide 2xl:text-base" htmlFor="website">Your
+                                    website </label> <input
+                                    className="rounded-xl border border-gray-300 bg-transparent p-2 pl-5 text-sm tracking-wide transition-colors placeholder:tracking-wide placeholder:text-gray-600 2xl:text-base  "
+                                    type="text" name="website" id="website" placeholder="Your website" maxLength={100}
+                                    tabIndex={-1} />
+                            </div>
+                            <div className="flex flex-col gap-2 2xl:gap-3 false"><label
+                                    className="text-sm font-semibold tracking-wide 2xl:text-base" htmlFor="message">Message
+                                    </label> <textarea
+                                    className="h-36 resize-none rounded-xl border border-gray-300 bg-transparent p-2 pl-5 text-sm tracking-wide transition-colors placeholder:tracking-wide placeholder:text-gray-600 2xl:h-44 2xl:text-base  "
+                                    name="message" id="message"
+                                    placeholder="What would you like to achieve and what are your goals?"
+                                    maxLength={10000}></textarea></div>
+                            <div></div>
+                            <p className="text-xs">I use your details to answer your request. Further information can be
+                                found in the <a
+                                    className="underline underline-offset-2 transition-colors hover:text-gray-200"
+                                    href="/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+                            </p>
+                            <div className="flex w-full flex-col items-center gap-4 lg:gap-5"><button
+                                    id="submit-button"
+                                    className="rounded-xl justify-center duration-500 flex gap-2.5 tracking-wide items-center px-8 py-3 bg-gray-50 hover:shadow-none uppercase shadow-button-glow transition-[box-shadow,background-color] text-black font-semibold text-sm w-full max-w-full z-10 h-11 shadow-none hover:bg-gray-50"
+                                    type="submit" disabled><span id="submit-button-text">Send message</span>
+                                    </button>
+                                <div className="flex min-h-16 items-start justify-center  opacity-0" id="submission-result">
+                                     
+                                    <p className="text-center text-sm tracking-wide">Thank you for reaching out!
+                                        I appreciate your message and will get back to you shortly.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            
+            <Footer />
+            
+            <div
+                className="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#2B2EE9] to-[#04344b] opacity-15">
+            </div>
+        </div> 
+
+    </>
+  );
+}
