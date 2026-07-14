@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 /* eslint-disable */
 
 import { useState, useEffect } from 'react';
+import Banner1 from '@/app/image/Banner-1.jpg';
 
 export default function Page() {
     const [showPreloader, setShowPreloader] = useState(true);
@@ -233,7 +234,7 @@ export default function Page() {
                             <div className="flex w-full flex-col gap-2 text-left lg:items-center lg:gap-4 lg:text-center max-w-lg lg:max-w-6xl items-center"
                                 id="heading-container-projects">
                                 <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
-                                    id="heading-title-projects"></h2>
+                                    id="heading-title-projects">Projects</h2>
 
                             </div>
                             <div className="flex flex-col items-center gap-28 lg:px-10 xl:gap-44">
@@ -244,10 +245,10 @@ export default function Page() {
                                         data-type="popup" id="thumbnail-button-ronny-herold-consulting">
                                         <div className="group relative aspect-[1.872074883]"><img
                                             className="absolute -z-10 rounded opacity-0 blur-2xl brightness-[3] saturate-150 transition-opacity duration-700 group-hover:opacity-50"
-                                            src="projects/ronny-herold-consulting/thumbnail.webp"
+                                            src={Banner1.src}
                                             alt="Screenshot of project Ronny Herold Consulting" loading="lazy"
                                             width="1200" height="641" /> <img className="thumbnail-image rounded"
-                                                src="projects/ronny-herold-consulting/thumbnail.webp"
+                                                src={Banner1.src}
                                                 alt="Screenshot of website for Ronny Herold Consulting" loading="lazy"
                                                 width="1200" height="641" data-flip-id="thumbnail-image"
                                                 id="thumbnail-image-ronny-herold-consulting" /></div>
@@ -642,7 +643,7 @@ export default function Page() {
                                     found in the <a
                                         className="underline underline-offset-2 transition-colors hover:text-gray-200"
                                         href="/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
-                                </p>
+                                </p>    
                                 <div className="flex w-full flex-col items-center gap-4 lg:gap-5"><button
                                     id="submit-button"
                                     className="rounded-xl justify-center duration-500 flex gap-2.5 tracking-wide items-center px-8 py-3 bg-gray-50 hover:shadow-none uppercase shadow-button-glow transition-[box-shadow,background-color] text-black font-semibold text-sm w-full max-w-full z-10 h-11 shadow-none hover:bg-gray-50"

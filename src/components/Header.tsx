@@ -18,17 +18,17 @@ export default function Header() {
                     <path fillRule="evenodd" clipRule="evenodd" d="M 20 4 L 20 24 L 24 24 A 10 10 0 0 0 34 14 A 10 10 0 0 0 24 4 Z M 24 8 L 24 20 A 6 6 0 0 0 30 14 A 6 6 0 0 0 24 8 Z" />
                 </svg>
                 <h2 className="w-fit translate-y-[1px] uppercase tracking-wider">Unocode developers</h2> <span
-                    className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-3.5 group-hover:left-1.5 motion-reduce:left-1.5"><svg
+                    className="pointer-events-none absolute top-1/2 -translate-y-1/2 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-3.5 group-hover:left-1.5 motion-reduce:left-1.5"><svg
                         xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff"
                         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                        className="lucide-icon lucide lucide-triangle">
+                        className="lucide-icon lucide lucide-triangle rotate-90">
                         <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
 
                     </svg></span> <span
-                        className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-3.5 group-hover:right-1.5 motion-reduce:right-1.5"><svg
+                        className="pointer-events-none absolute top-1/2 -translate-y-1/2 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-3.5 group-hover:right-1.5 motion-reduce:right-1.5"><svg
                             xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff"
                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                            className="lucide-icon lucide lucide-triangle">
+                            className="lucide-icon lucide lucide-triangle -rotate-90">
                         <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
 
                     </svg></span>
