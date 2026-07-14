@@ -153,7 +153,7 @@ export default function Page() {
                             id="hero-supporting-title">Unocode Developers</h2>
                         <div
                             className="font-inria-sans text-4xl font-bold capitalize leading-[44px] tracking-[.15em] xl:text-5xl 2xl:text-6xl">
-                            <h1>Simple. <br className="sm:hidden" /> Elegant. Animated.</h1>
+                            <h1>INNOVATE. <br className="sm:hidden" /> DEVELOP. ELEVATE</h1>
                         </div>
                         <p
                             className="flex flex-wrap justify-center gap-x-1 tracking-wide xs:px-16 lg:gap-x-1.5 xl:text-lg 2xl:text-xl">
