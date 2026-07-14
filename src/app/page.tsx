@@ -1,11 +1,76 @@
 /* eslint-disable */
 'use client';
 
-export default function Page() {
+import { useState, useEffect } from 'react';
 
+export default function Page() {
+    const [showPreloader, setShowPreloader] = useState(true);
+
+    useEffect(() => {
+        // Remove preloader from DOM after curtain animation finishes (1.5s delay + 0.9s animation = 2.4s)
+        const timer = setTimeout(() => {
+            setShowPreloader(false);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <>
+            {showPreloader && (
+                <>
+                    <style>{`
+                        .preloader {
+                            position: fixed;
+                            inset: 0;
+                            z-index: 9999;
+                            background: #0d0710;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            animation: curtainUp 0.9s cubic-bezier(.76,0,.24,1) forwards;
+                            animation-delay: 1.5s;
+                        }
+                        @keyframes curtainUp {
+                            to { transform: translateY(-100%); }
+                        }
+                        .preloader-logo {
+                            font-size: 15px;
+                            letter-spacing: 6px;
+                            font-weight: 700;
+                            color: #f5f3f7;
+                            opacity: 0;
+                            animation: logoIn 0.7s ease forwards 0.15s;
+                        }
+                        @keyframes logoIn {
+                            to { opacity: 1; letter-spacing: 3px; }
+                        }
+                        .preloader-bar {
+                            margin-top: 22px;
+                            width: 160px;
+                            height: 2px;
+                            background: rgba(255,255,255,0.1);
+                            border-radius: 2px;
+                            overflow: hidden;
+                        }
+                        .preloader-bar-fill {
+                            height: 100%;
+                            width: 0%;
+                            background: linear-gradient(90deg, #a855f7, #6366f1, #e879f9);
+                            animation: fillBar 1.3s cubic-bezier(.4,0,.2,1) forwards 0.2s;
+                        }
+                        @keyframes fillBar { 
+                            to { width: 100%; } 
+                        }
+                    `}</style>
+                    <div className="preloader">
+                        <div className="preloader-logo">UNOCODE DEVELOPERS</div>
+                        <div className="preloader-bar">
+                            <div className="preloader-bar-fill"></div>
+                        </div>
+                    </div>
+                </>
+            )}
 
             <div className="transition-opacity opacity-0"><button id="scroll-up-button"
                 className="justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center p-3 bg-gray-600/20 backdrop-blur-sm hover:bg-gray-700/20 shadow transition-colors text-sm fixed bottom-4 right-4 z-40 rounded-full origin-bottom lg:bottom-6 lg:right-6"
