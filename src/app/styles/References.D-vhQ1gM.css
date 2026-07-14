@@ -1,0 +1,7 @@
+video.svelte-la7uh1::-webkit-media-controls-volume-slider {
+    display: none
+}
+
+video.svelte-la7uh1::-webkit-media-controls-mute-button {
+    display: none
+}
