@@ -626,12 +626,10 @@ export default function Page() {
                                         className="absolute -left-1/4 -top-2/3 -z-50 h-[175%] w-[150%] rounded-full bg-gradient-to-tr from-[#440303] to-[#c63d14] opacity-[0.1] lg:-left-80 lg:-top-[12.5%] lg:h-[125%] lg:w-[200%]">
                                     </div>
                                     <h3 className="font-inria-sans text-3xl font-bold tracking-wide">Hey,</h3>
-                                    <p>my name is Leon Obermann, web designer and developer from Cologne, Germany. I create
-                                        <b className="font-semibold">high&#8209end websites for visual brands</b>.
+                                    <p style={{ textAlign: "justify" }}>Hello! I'm Indhumathi, an MCA graduate and an aspiring Software Developer with a passion for creating modern, responsive, and user-centric web applications. I have hands-on experience with <b className="font-semibold"> HTML, CSS, JavaScript, React.js, React Native, Java, Python, and MySQL </b>
+                                        along with a solid understanding of front-end development principles and database management.
                                     </p>
-                                    <p>With several years of experience in both development and design, I combine technical
-                                        expertise with a strong design sensibility to create digital experiences that truly
-                                        stand out.</p>
+
                                     <p>Let's make your website something extraordinary!</p> <a id=""
                                         className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4"
                                         href="/about" target="_self" rel="">Learn more <span
@@ -990,87 +988,6 @@ export default function Page() {
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div className="flex w-full flex-col items-center">
-                            <div className="flex w-full max-w-lg flex-col">
-                                <div className="flex w-full flex-col items-start gap-2 text-left lg:gap-4 lg:text-center lg:items-start"
-                                    id="heading-container-undefined">
-                                    <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
-                                        id="heading-title-undefined"></h2>
-
-                                </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">How Much Does a Website Cost?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">What Do I Need to Get Started?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">How Long Does a Project Take?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">What If I Don't Like the Design?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">Can I Update My Content Later?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 border-b-2"><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">Why Are There No Monthly Costs?</h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                                <div className="flex w-full flex-col border-gray-700 "><button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-5 transition-colors hover:text-gray-200 lg:py-6">
-                                    <h2 className="text-left font-medium">Do You Offer Maintenance or Support After Launch?
-                                    </h2>
-                                    <div
-                                        className="relative size-4 min-w-4 transition-transform duration-300 motion-reduce:transition-none -rotate-90 [&amp;_span]:absolute [&amp;_span]:left-1/2 [&amp;_span]:top-1/2 [&amp;_span]:h-0.5 [&amp;_span]:-translate-x-1/2 [&amp;_span]:-translate-y-1/2 [&amp;_span]:bg-gray-200">
-                                        <span
-                                            className="rotate-90 transition-[width] duration-200 motion-reduce:transition-none w-full"></span>
-                                        <span className="w-full"></span>
-                                    </div>
-                                </button> </div>
-                            </div>
                         </div>
                     </div>
                 </div>
