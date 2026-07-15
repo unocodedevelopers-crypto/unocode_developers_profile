@@ -7,42 +7,42 @@ import { useState, useEffect } from 'react';
 import ClientContactForm from '@/components/ClientContactForm';
 
 export type Testimonial = {
-  id: string;
-  name: string;
-  company: string;
-  text: string;
-  imageUrl?: string;
+    id: string;
+    name: string;
+    company: string;
+    text: string;
+    imageUrl?: string;
 };
 
 export type Project = {
-  id: string;
-  title: string;
-  description: string[];
-  imageUrl: string;
-  gradientFrom: string;
-  gradientTo: string;
+    id: string;
+    title: string;
+    description: string[];
+    imageUrl: string;
+    gradientFrom: string;
+    gradientTo: string;
 };
 
 export type Concept = {
-  id: string;
-  title: string;
-  imageUrl: string;
+    id: string;
+    title: string;
+    imageUrl: string;
 };
 
 export type BioEntry = {
-  id: string;
-  greeting: string;
-  text: string;
-  closing: string;
-  imageUrl?: string;
+    id: string;
+    greeting: string;
+    text: string;
+    closing: string;
+    imageUrl?: string;
 };
 
-export default function HomePageClient({ 
+export default function HomePageClient({
     testimonials,
     projects,
     concepts,
     bioEntries
-}: { 
+}: {
     testimonials: Testimonial[],
     projects: Project[],
     concepts: Concept[],
@@ -230,11 +230,10 @@ export default function HomePageClient({
                                     id="heading-container-undefined">
                                     <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
                                         id="heading-title-testimonials">
-                                        See For Yourself
+                                        About Us
                                     </h2>
-                                    <p className="text-sm lg:text-base 2xl:text-lg">Real experiences say more than any promise.
-                                        Discover what my clients think about working with me and how their projects came to
-                                        life.</p>
+                                    <p className="text-sm lg:text-base 2xl:text-lg">
+                                        We build modern, responsive, and high-performance websites that help businesses grow online. At Unocode Developers, we combine creativity, innovation, and technology to deliver digital solutions tailored to your goals.</p>
                                 </div>
                             </div>
                             <div id="social-proof-scroller"></div>
@@ -285,7 +284,7 @@ export default function HomePageClient({
                                                     <img
                                                         className="absolute -z-10 rounded opacity-0 blur-2xl brightness-[3] saturate-150 transition-opacity duration-700 group-hover:opacity-50"
                                                         src={project.imageUrl}
-                                                        alt={`Background blur for project ${project.title}`} loading="lazy" width="1200" height="641" /> 
+                                                        alt={`Background blur for project ${project.title}`} loading="lazy" width="1200" height="641" />
                                                     <img className="thumbnail-image rounded"
                                                         src={project.imageUrl}
                                                         alt={`Screenshot of website for ${project.title}`} loading="lazy" width="1200" height="641" data-flip-id="thumbnail-image"
@@ -306,12 +305,12 @@ export default function HomePageClient({
                                                     ))}
                                                     <button id=""
                                                         className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4">
-                                                        Learn more 
+                                                        Learn more
                                                         <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                                                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                                                             </svg>
-                                                        </span> 
+                                                        </span>
                                                         <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                                                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
@@ -341,7 +340,7 @@ export default function HomePageClient({
                                                 className="absolute -z-10 rounded opacity-0 blur-2xl brightness-150 transition-opacity duration-700 group-hover:opacity-50"
                                                 src={concept.imageUrl}
                                                 alt={`Background blur for concept design for ${concept.title}`}
-                                                width="1440" height="1024" loading="lazy" /> 
+                                                width="1440" height="1024" loading="lazy" />
                                             <img
                                                 className="thumbnail-image rounded" src={concept.imageUrl}
                                                 alt={`Concept design for ${concept.title}`} width="1440" height="1024"
@@ -394,7 +393,7 @@ export default function HomePageClient({
                                             </div>
                                             <h3 className="font-inria-sans text-3xl font-bold tracking-wide">{bio.greeting}</h3>
                                             <div style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: bio.text }}></div>
-                                            
+
                                             <p>{bio.closing}</p> <a id=""
                                                 className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4"
                                                 href="/about" target="_self" rel="">Learn more <span
