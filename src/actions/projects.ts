@@ -4,10 +4,20 @@ import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { Project } from "@/components/HomePageClient";
+import { kv } from "@vercel/kv";
 
 const getFilePath = () => path.join(process.cwd(), "data", "projects.json");
 
-const getProjects = (): Project[] => {
+export const getProjects = async (): Promise<Project[]> => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const data = await kv.get<Project[]>("projects");
+      if (data) return data;
+    } catch (e) {
+      console.error("KV get error", e);
+    }
+  }
+
   const filePath = getFilePath();
   if (!fs.existsSync(filePath)) return [];
   try {
@@ -17,7 +27,16 @@ const getProjects = (): Project[] => {
   }
 };
 
-const saveProjects = (projects: Project[]) => {
+const saveProjects = async (projects: Project[]) => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      await kv.set("projects", projects);
+      return;
+    } catch (error) {
+      console.error("Failed to write to KV", error);
+    }
+  }
+
   try {
     fs.writeFileSync(getFilePath(), JSON.stringify(projects, null, 2));
   } catch (error) {
@@ -36,7 +55,7 @@ export async function addProject(formData: FormData) {
 
   const description = descriptionText.split("\n").filter(d => d.trim() !== "");
 
-  const projects = getProjects();
+  const projects = await getProjects();
   const newProject: Project = {
     id: crypto.randomUUID(),
     title,
@@ -47,7 +66,7 @@ export async function addProject(formData: FormData) {
   };
 
   projects.push(newProject);
-  saveProjects(projects);
+  await saveProjects(projects);
   
   revalidatePath("/");
   revalidatePath("/admin/projects");
@@ -55,9 +74,9 @@ export async function addProject(formData: FormData) {
 }
 
 export async function deleteProject(id: string) {
-  let projects = getProjects();
+  let projects = await getProjects();
   projects = projects.filter((p) => p.id !== id);
-  saveProjects(projects);
+  await saveProjects(projects);
   
   revalidatePath("/");
   revalidatePath("/admin/projects");
@@ -71,7 +90,7 @@ export async function updateProject(id: string, formData: FormData) {
   const gradientFrom = formData.get("gradientFrom") as string;
   const gradientTo = formData.get("gradientTo") as string;
 
-  let projects = getProjects();
+  let projects = await getProjects();
   const index = projects.findIndex((p) => p.id === id);
   
   if (index !== -1) {
@@ -84,7 +103,7 @@ export async function updateProject(id: string, formData: FormData) {
       gradientFrom,
       gradientTo
     };
-    saveProjects(projects);
+    await saveProjects(projects);
   }
   
   revalidatePath("/");

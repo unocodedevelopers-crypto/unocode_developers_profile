@@ -4,10 +4,20 @@ import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { Concept } from "@/components/HomePageClient";
+import { kv } from "@vercel/kv";
 
 const getFilePath = () => path.join(process.cwd(), "data", "concepts.json");
 
-const getConcepts = (): Concept[] => {
+export const getConcepts = async (): Promise<Concept[]> => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const data = await kv.get<Concept[]>("concepts");
+      if (data) return data;
+    } catch (e) {
+      console.error("KV get error", e);
+    }
+  }
+
   const filePath = getFilePath();
   if (!fs.existsSync(filePath)) return [];
   try {
@@ -17,7 +27,16 @@ const getConcepts = (): Concept[] => {
   }
 };
 
-const saveConcepts = (concepts: Concept[]) => {
+const saveConcepts = async (concepts: Concept[]) => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      await kv.set("concepts", concepts);
+      return;
+    } catch (error) {
+      console.error("Failed to write to KV", error);
+    }
+  }
+
   try {
     fs.writeFileSync(getFilePath(), JSON.stringify(concepts, null, 2));
   } catch (error) {
@@ -31,7 +50,7 @@ export async function addConcept(formData: FormData) {
 
   if (!title || !imageUrl) return { error: "Title and image URL are required" };
 
-  const concepts = getConcepts();
+  const concepts = await getConcepts();
   const newConcept: Concept = {
     id: crypto.randomUUID(),
     title,
@@ -39,7 +58,7 @@ export async function addConcept(formData: FormData) {
   };
 
   concepts.push(newConcept);
-  saveConcepts(concepts);
+  await saveConcepts(concepts);
   
   revalidatePath("/");
   revalidatePath("/admin/projects"); // Concepts are managed on the projects page
@@ -47,9 +66,9 @@ export async function addConcept(formData: FormData) {
 }
 
 export async function deleteConcept(id: string) {
-  let concepts = getConcepts();
+  let concepts = await getConcepts();
   concepts = concepts.filter((c) => c.id !== id);
-  saveConcepts(concepts);
+  await saveConcepts(concepts);
   
   revalidatePath("/");
   revalidatePath("/admin/projects");
@@ -60,7 +79,7 @@ export async function updateConcept(id: string, formData: FormData) {
   const title = formData.get("title") as string;
   const imageUrl = formData.get("imageUrl") as string;
 
-  let concepts = getConcepts();
+  let concepts = await getConcepts();
   const index = concepts.findIndex((c) => c.id === id);
   
   if (index !== -1) {
@@ -69,7 +88,7 @@ export async function updateConcept(id: string, formData: FormData) {
       title, 
       imageUrl,
     };
-    saveConcepts(concepts);
+    await saveConcepts(concepts);
   }
   
   revalidatePath("/");

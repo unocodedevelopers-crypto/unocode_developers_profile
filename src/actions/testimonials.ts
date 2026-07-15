@@ -4,10 +4,20 @@ import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { Testimonial } from "@/components/HomePageClient";
+import { kv } from "@vercel/kv";
 
 const getFilePath = () => path.join(process.cwd(), "data", "testimonials.json");
 
-const getTestimonials = (): Testimonial[] => {
+export const getTestimonials = async (): Promise<Testimonial[]> => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const data = await kv.get<Testimonial[]>("testimonials");
+      if (data) return data;
+    } catch (e) {
+      console.error("KV get error", e);
+    }
+  }
+
   const filePath = getFilePath();
   if (!fs.existsSync(filePath)) return [];
   try {
@@ -17,7 +27,16 @@ const getTestimonials = (): Testimonial[] => {
   }
 };
 
-const saveTestimonials = (testimonials: Testimonial[]) => {
+const saveTestimonials = async (testimonials: Testimonial[]) => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      await kv.set("testimonials", testimonials);
+      return;
+    } catch (error) {
+      console.error("Failed to write to KV", error);
+    }
+  }
+
   try {
     fs.writeFileSync(getFilePath(), JSON.stringify(testimonials, null, 2));
   } catch (error) {
@@ -33,7 +52,7 @@ export async function addTestimonial(formData: FormData) {
 
   if (!name || !text) return { error: "Name and text are required" };
 
-  const testimonials = getTestimonials();
+  const testimonials = await getTestimonials();
   const newTestimonial: Testimonial = {
     id: crypto.randomUUID(),
     name,
@@ -43,7 +62,7 @@ export async function addTestimonial(formData: FormData) {
   };
 
   testimonials.push(newTestimonial);
-  saveTestimonials(testimonials);
+  await saveTestimonials(testimonials);
   
   revalidatePath("/");
   revalidatePath("/admin/testimonials");
@@ -51,9 +70,9 @@ export async function addTestimonial(formData: FormData) {
 }
 
 export async function deleteTestimonial(id: string) {
-  let testimonials = getTestimonials();
+  let testimonials = await getTestimonials();
   testimonials = testimonials.filter((t) => t.id !== id);
-  saveTestimonials(testimonials);
+  await saveTestimonials(testimonials);
   
   revalidatePath("/");
   revalidatePath("/admin/testimonials");
@@ -66,7 +85,7 @@ export async function updateTestimonial(id: string, formData: FormData) {
   const text = formData.get("text") as string;
   const imageUrl = formData.get("imageUrl") as string;
 
-  let testimonials = getTestimonials();
+  let testimonials = await getTestimonials();
   const index = testimonials.findIndex((t) => t.id === id);
   
   if (index !== -1) {
@@ -77,7 +96,7 @@ export async function updateTestimonial(id: string, formData: FormData) {
       text,
       imageUrl: imageUrl || undefined 
     };
-    saveTestimonials(testimonials);
+    await saveTestimonials(testimonials);
   }
   
   revalidatePath("/");

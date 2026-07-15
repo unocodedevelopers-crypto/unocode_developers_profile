@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
+import { kv } from "@vercel/kv";
 
 export type BioEntry = {
   id: string;
@@ -14,7 +15,16 @@ export type BioEntry = {
 
 const getFilePath = () => path.join(process.cwd(), "data", "bio.json");
 
-const getBioEntries = (): BioEntry[] => {
+export const getBioEntries = async (): Promise<BioEntry[]> => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const data = await kv.get<BioEntry[]>("bio");
+      if (data) return data;
+    } catch (e) {
+      console.error("KV get error", e);
+    }
+  }
+
   const filePath = getFilePath();
   if (!fs.existsSync(filePath)) return [];
   try {
@@ -24,7 +34,16 @@ const getBioEntries = (): BioEntry[] => {
   }
 };
 
-const saveBioEntries = (entries: BioEntry[]) => {
+const saveBioEntries = async (entries: BioEntry[]) => {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      await kv.set("bio", entries);
+      return;
+    } catch (error) {
+      console.error("Failed to write to KV", error);
+    }
+  }
+
   try {
     fs.writeFileSync(getFilePath(), JSON.stringify(entries, null, 2));
   } catch (error) {
@@ -40,7 +59,7 @@ export async function addBio(formData: FormData) {
 
   if (!greeting || !text) return { error: "Greeting and text are required" };
 
-  const entries = getBioEntries();
+  const entries = await getBioEntries();
   const newEntry: BioEntry = {
     id: crypto.randomUUID(),
     greeting,
@@ -50,7 +69,7 @@ export async function addBio(formData: FormData) {
   };
 
   entries.push(newEntry);
-  saveBioEntries(entries);
+  await saveBioEntries(entries);
   
   revalidatePath("/");
   revalidatePath("/admin/bio");
@@ -58,9 +77,9 @@ export async function addBio(formData: FormData) {
 }
 
 export async function deleteBio(id: string) {
-  let entries = getBioEntries();
+  let entries = await getBioEntries();
   entries = entries.filter((e) => e.id !== id);
-  saveBioEntries(entries);
+  await saveBioEntries(entries);
   
   revalidatePath("/");
   revalidatePath("/admin/bio");
@@ -73,7 +92,7 @@ export async function updateBio(id: string, formData: FormData) {
   const closing = formData.get("closing") as string;
   const imageUrl = formData.get("imageUrl") as string;
 
-  let entries = getBioEntries();
+  let entries = await getBioEntries();
   const index = entries.findIndex((e) => e.id === id);
   
   if (index !== -1) {
@@ -84,7 +103,7 @@ export async function updateBio(id: string, formData: FormData) {
       closing,
       imageUrl: imageUrl || undefined 
     };
-    saveBioEntries(entries);
+    await saveBioEntries(entries);
   }
   
   revalidatePath("/");

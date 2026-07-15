@@ -1,19 +1,5 @@
 import React from "react";
-import fs from "fs";
-import path from "path";
-
-async function getMessages() {
-  const filePath = path.join(process.cwd(), "data", "messages.json");
-  if (!fs.existsSync(filePath)) {
-    return [];
-  }
-  const fileData = fs.readFileSync(filePath, "utf-8");
-  try {
-    return JSON.parse(fileData);
-  } catch (e) {
-    return [];
-  }
-}
+import { getMessages } from "@/actions/contact";
 
 export default async function MessagesPage() {
   const messages = await getMessages();
