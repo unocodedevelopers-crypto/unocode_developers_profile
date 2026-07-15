@@ -3,8 +3,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 /* eslint-disable */
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ClientContactForm from '@/components/ClientContactForm';
 
 export type Testimonial = {
@@ -50,6 +50,16 @@ export default function HomePageClient({
     bioEntries?: BioEntry[]
 }) {
     const [showPreloader, setShowPreloader] = useState(true);
+
+    const aboutIntroRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: aboutIntroRef,
+        offset: ["start end", "end start"]
+    });
+    
+    // Animate texts to start separated, join in the middle (0%), and continue moving
+    const upperTextX = useTransform(scrollYProgress, [0, 0.5, 1], ["-25%", "0%", "25%"]);
+    const lowerTextX = useTransform(scrollYProgress, [0, 0.5, 1], ["25%", "0%", "-25%"]);
 
     useEffect(() => {
         // Remove preloader from DOM after curtain animation finishes (1.5s delay + 0.9s animation = 2.4s)
@@ -419,13 +429,14 @@ export default function HomePageClient({
                                 </div>
                             </div>
                         </div>
-                        <div className="flex w-full justify-center">
+                        <div className="flex w-full justify-center overflow-hidden">
                             <div id="about-intro-container"
+                                ref={aboutIntroRef}
                                 className="flex w-full max-w-sm flex-col items-center justify-center gap-8 font-inria-sans text-2xl font-thin tracking-wider xs:max-w-md xs:gap-9 xs:text-3xl sm:max-w-lg sm:gap-11 sm:text-4xl md:max-w-2xl md:gap-12 md:text-5xl 2xl:max-w-4xl 2xl:gap-16 2xl:text-6xl">
-                                <h2 id="about-intro-upper-text" className="w-full">Meet the <b className="font-medium">person</b>
-                                </h2>
-                                <h2 id="about-intro-lower-text" className="w-full text-right"><b className="font-medium">behind</b>
-                                    the design</h2>
+                                <motion.h2 id="about-intro-upper-text" className="w-full whitespace-nowrap" style={{ x: upperTextX }}>Meet the <b className="font-medium">person</b>
+                                </motion.h2>
+                                <motion.h2 id="about-intro-lower-text" className="w-full text-right whitespace-nowrap" style={{ x: lowerTextX }}><b className="font-medium">behind</b> the design
+                                 </motion.h2>
                             </div>
                         </div>
                         {bioEntries && bioEntries.length > 0 ? (
