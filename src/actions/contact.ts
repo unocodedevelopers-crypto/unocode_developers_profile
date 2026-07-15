@@ -44,8 +44,12 @@ export async function submitContactForm(formData: FormData) {
     // Add new message at the beginning
     messages.unshift(newMessage);
     
-    // Write back to file
-    fs.writeFileSync(filePath, JSON.stringify(messages, null, 2));
+    // Write back to file (catch Vercel read-only filesystem errors)
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(messages, null, 2));
+    } catch (writeError) {
+      console.error("Failed to write message to file system. Note: Vercel has a read-only filesystem.", writeError);
+    }
 
     // Revalidate the admin dashboard so the new message shows up immediately
     revalidatePath("/admin");

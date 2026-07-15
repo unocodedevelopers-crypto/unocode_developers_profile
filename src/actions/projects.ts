@@ -18,7 +18,11 @@ const getProjects = (): Project[] => {
 };
 
 const saveProjects = (projects: Project[]) => {
-  fs.writeFileSync(getFilePath(), JSON.stringify(projects, null, 2));
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(projects, null, 2));
+  } catch (error) {
+    console.error("Failed to write to file system. Note: Vercel has a read-only filesystem.", error);
+  }
 };
 
 export async function addProject(formData: FormData) {

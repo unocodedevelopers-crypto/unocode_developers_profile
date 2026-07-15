@@ -18,7 +18,11 @@ const getConcepts = (): Concept[] => {
 };
 
 const saveConcepts = (concepts: Concept[]) => {
-  fs.writeFileSync(getFilePath(), JSON.stringify(concepts, null, 2));
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(concepts, null, 2));
+  } catch (error) {
+    console.error("Failed to write to file system. Note: Vercel has a read-only filesystem.", error);
+  }
 };
 
 export async function addConcept(formData: FormData) {
