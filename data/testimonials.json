@@ -10,12 +10,14 @@
     "id": "2",
     "name": "BavanKumar",
     "company": "Unocode Developers",
-    "text": "I'm Bavankumar Baskar, a Freelance Full Stack Developer passionate about building modern websites, web applications, mobile apps, and AI-powered solutions. I help businesses, startups, and individuals turn their ideas into reliable, scalable, and user-friendly digital products."
+    "text": "I'm Bavankumar Baskar, a Freelance Full Stack Developer passionate about building modern websites, web applications, mobile apps, and AI-powered solutions. I help businesses, startups, and individuals turn their ideas into reliable, scalable, and user-friendly digital products.",
+    "imageUrl": "/uploads/1784098491702-Bavan.webp"
   },
   {
     "id": "3",
     "name": "MahaGanesh",
-    "company": "Kreativ-Bauten",
-    "text": "Super cool, I'm very happy! Thank you very much for everything."
+    "company": "Unocode Developers",
+    "text": "I'm Mahaganesh, a Full Stack Developer with strong expertise in frontend and backend development. I specialize in building modern, responsive, and scalable websites, web applications, mobile apps, and AI-powered solutions. As I begin my freelance journey, I'm committed to delivering high-quality, reliable, and user-focused digital solutions while helping businesses, startups, and individuals bring their ideas to life.",
+    "imageUrl": "/uploads/1784099240409-maha.webp"
   }
 ]

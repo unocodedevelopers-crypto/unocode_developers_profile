@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Project, Concept } from "@/components/HomePageClient";
 import { addProject, deleteProject, updateProject } from "@/actions/projects";
 import { addConcept, deleteConcept, updateConcept } from "@/actions/concepts";
+import { Plus, X, Pencil, Trash2, Image as ImageIcon } from "lucide-react";
 
 export default function ProjectsClient({
   initialProjects,
@@ -35,6 +36,69 @@ export default function ProjectsClient({
     }
   };
 
+  const handleUploadAndSubmit = async (e: React.FormEvent<HTMLFormElement>, actionType: 'project' | 'concept', action: 'add' | 'update', id?: string) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const fileInput = form.querySelector('input[type="file"]') as HTMLInputElement;
+    const file = fileInput?.files?.[0];
+
+    if (file) {
+      const uploadData = new FormData();
+      uploadData.append('file', file);
+      
+      try {
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: uploadData,
+        });
+        const result = await res.json();
+        
+        if (result.success && result.url) {
+          formData.set('imageUrl', result.url);
+        }
+      } catch (err) {
+        console.error("Upload failed", err);
+        alert("Failed to upload image.");
+        return;
+      }
+    } else {
+      if (!formData.get('existingImageUrl')) {
+        formData.delete('imageUrl');
+      } else {
+        formData.set('imageUrl', formData.get('existingImageUrl') as string);
+      }
+    }
+
+    formData.delete('existingImageUrl');
+
+    if (actionType === 'project') {
+      if (action === 'add') {
+        const res = await addProject(formData);
+        if (res.success) {
+          setIsAddingProject(false);
+          window.location.reload();
+        }
+      } else if (action === 'update' && id) {
+        await updateProject(id, formData);
+        setEditingProjectId(null);
+        window.location.reload();
+      }
+    } else {
+      if (action === 'add') {
+        const res = await addConcept(formData);
+        if (res.success) {
+          setIsAddingConcept(false);
+          window.location.reload();
+        }
+      } else if (action === 'update' && id) {
+        await updateConcept(id, formData);
+        setEditingConceptId(null);
+        window.location.reload();
+      }
+    }
+  };
+
   return (
     <div className="space-y-12">
       {/* Projects Section */}
@@ -53,20 +117,14 @@ export default function ProjectsClient({
           <div className="card bg-base-100 shadow-sm border border-base-200">
             <div className="card-body">
               <h3 className="card-title mb-4">Add New Project</h3>
-              <form action={async (formData) => {
-                const res = await addProject(formData);
-                if (res.success) {
-                  setIsAddingProject(false);
-                  window.location.reload();
-                }
-              }} className="space-y-4">
+              <form onSubmit={(e) => handleUploadAndSubmit(e, 'project', 'add')} className="space-y-4">
                 <div className="form-control">
                   <label className="label"><span className="label-text">Title</span></label>
                   <input type="text" name="title" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
-                  <label className="label"><span className="label-text">Image URL</span></label>
-                  <input type="text" name="imageUrl" className="input input-bordered" placeholder="projects/my-project/thumbnail.webp" required />
+                  <label className="label"><span className="label-text">Image Upload (Required)</span></label>
+                  <input type="file" name="file" accept="image/*" className="file-input file-input-bordered w-full" required />
                 </div>
                 <div className="form-control">
                   <label className="label"><span className="label-text">Description (Use new lines for paragraphs)</span></label>
@@ -96,13 +154,15 @@ export default function ProjectsClient({
               </figure>
               <div className="card-body lg:w-2/3">
                 {editingProjectId === project.id ? (
-                  <form action={async (formData) => {
-                    await updateProject(project.id, formData);
-                    setEditingProjectId(null);
-                    window.location.reload();
-                  }} className="space-y-4 w-full">
+                  <form onSubmit={(e) => handleUploadAndSubmit(e, 'project', 'update', project.id)} className="space-y-4 w-full">
                     <input type="text" name="title" defaultValue={project.title} className="input input-bordered w-full" required />
-                    <input type="text" name="imageUrl" defaultValue={project.imageUrl} className="input input-bordered w-full" required />
+                    
+                    <div className="form-control w-full">
+                      <label className="label"><span className="label-text text-xs">New Image (Optional)</span></label>
+                      <input type="file" name="file" accept="image/*" className="file-input file-input-bordered file-input-sm w-full" />
+                      <input type="hidden" name="existingImageUrl" value={project.imageUrl || ''} />
+                    </div>
+
                     <textarea name="description" defaultValue={project.description.join('\n')} className="textarea textarea-bordered w-full h-32" required></textarea>
                     <div className="grid grid-cols-2 gap-4">
                       <input type="text" name="gradientFrom" defaultValue={project.gradientFrom} className="input input-bordered w-full" required />
@@ -155,20 +215,14 @@ export default function ProjectsClient({
           <div className="card bg-base-100 shadow-sm border border-base-200">
             <div className="card-body">
               <h3 className="card-title mb-4">Add New Concept</h3>
-              <form action={async (formData) => {
-                const res = await addConcept(formData);
-                if (res.success) {
-                  setIsAddingConcept(false);
-                  window.location.reload();
-                }
-              }} className="space-y-4">
+              <form onSubmit={(e) => handleUploadAndSubmit(e, 'concept', 'add')} className="space-y-4">
                 <div className="form-control">
                   <label className="label"><span className="label-text">Title</span></label>
                   <input type="text" name="title" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
-                  <label className="label"><span className="label-text">Image URL</span></label>
-                  <input type="text" name="imageUrl" className="input input-bordered" placeholder="./concepts/MyConcept.webp" required />
+                  <label className="label"><span className="label-text">Image Upload (Required)</span></label>
+                  <input type="file" name="file" accept="image/*" className="file-input file-input-bordered w-full" required />
                 </div>
                 <button type="submit" className="btn btn-success">Save Concept</button>
               </form>
@@ -184,13 +238,15 @@ export default function ProjectsClient({
               </figure>
               <div className="card-body">
                 {editingConceptId === concept.id ? (
-                  <form action={async (formData) => {
-                    await updateConcept(concept.id, formData);
-                    setEditingConceptId(null);
-                    window.location.reload();
-                  }} className="space-y-4 w-full">
+                  <form onSubmit={(e) => handleUploadAndSubmit(e, 'concept', 'update', concept.id)} className="space-y-4 w-full">
                     <input type="text" name="title" defaultValue={concept.title} className="input input-bordered w-full input-sm" required />
-                    <input type="text" name="imageUrl" defaultValue={concept.imageUrl} className="input input-bordered w-full input-sm" required />
+                    
+                    <div className="form-control w-full">
+                      <label className="label"><span className="label-text text-xs">New Image (Optional)</span></label>
+                      <input type="file" name="file" accept="image/*" className="file-input file-input-bordered file-input-sm w-full" />
+                      <input type="hidden" name="existingImageUrl" value={concept.imageUrl || ''} />
+                    </div>
+
                     <div className="flex gap-2">
                       <button type="submit" className="btn btn-xs btn-success">Save</button>
                       <button type="button" onClick={() => setEditingConceptId(null)} className="btn btn-xs">Cancel</button>

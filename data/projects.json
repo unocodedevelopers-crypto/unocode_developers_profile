@@ -1,12 +1,11 @@
 [
   {
     "id": "1",
-    "title": "Ronny Herold Consulting",
+    "title": "Kantha",
     "description": [
-      "Ronny already had a website, but wanted a more modern and professional presence that clearly communicates his expertise in business intelligence and builds trust online.\r",
-      "The result is a refined design in deep blue that radiates professionalism and aligns seamlessly with his existing branding and portraits."
+      "Kantha Rice & Millet brings you nature's finest grains, sourced directly from trusted farmers and processed with care to preserve authentic taste and nutrition. Our range of traditional rice and millet varieties is grown without harmful chemicals, ensuring every grain is pure, healthy, and wholesome for your family. Rooted in tradition yet committed to quality, we bridge the gap between farm and kitchen, delivering freshness you can trust. Choose Kantha Rice & Millet for a healthier lifestyle rooted in nature's goodness — because good health begins with good grain."
     ],
-    "imageUrl": "https://www.gstatic.com/webp/gallery/1.webp",
+    "imageUrl": "/uploads/1784100765676-pro1.webp",
     "gradientFrom": "#061f46",
     "gradientTo": "#00244d"
   },
