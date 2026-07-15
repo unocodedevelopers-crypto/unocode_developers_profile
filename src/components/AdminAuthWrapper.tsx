@@ -5,7 +5,8 @@ import React, { useState, useEffect } from 'react';
 const users = {
   'Bavankumar.unocodedeveloper': 'Bavankumar@1208',
   'Indhumathi.unocodedeveloper': 'Indhumathi@3802',
-  'mahaganesh.unocodedeveloper': 'Mahaganesh@16303'
+  'mahaganesh.unocodedeveloper': 'Mahaganesh@16303',
+  'admin.unocode': 'admin123'
 };
 
 export default function AdminAuthWrapper({ children }: { children: React.ReactNode }) {
