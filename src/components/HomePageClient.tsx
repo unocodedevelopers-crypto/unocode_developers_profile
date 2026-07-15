@@ -449,7 +449,7 @@ export default function HomePageClient({
                                     </div>
                                     <div className="flex flex-col text-sm 2xl:text-base"><a id=""
                                         className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 decoration-white/40 underline-offset-4 group relative px-4 no-underline -ml-4 py-1"
-                                        href="/cdn-cgi/l/email-protection#ed81888283ad828f889f808c8383c09a888f89889e848a83c38988"
+                                        href="mailto:unocode.developers@gmail.com"
                                         target="_self" rel=""><span className="2xl:hidden"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -468,8 +468,7 @@ export default function HomePageClient({
 
                                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
 
-                                        </svg></span> <span><span className="__cf_email__"
-                                            data-cfemail="731f161c1d331c1116011e121d1d5e0416111716001a141d5d1716">[email&#160;protected]</span></span>
+                                        </svg></span> <span>unocode.developers@gmail.com</span>
                                         <span
                                             className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="6" height="6"

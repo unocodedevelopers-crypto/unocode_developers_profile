@@ -15,7 +15,12 @@ type Message = {
   status: string;
 };
 
-const getFilePath = () => path.join(process.cwd(), "data", "messages.json");
+const getFilePath = () => {
+  if (process.env.VERCEL) {
+    return path.join("/tmp", "messages.json");
+  }
+  return path.join(process.cwd(), "data", "messages.json");
+};
 
 export const getMessages = async (): Promise<Message[]> => {
   if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
@@ -82,10 +87,10 @@ export async function submitContactForm(formData: FormData) {
     };
 
     let messages = await getMessages();
-    
+
     // Add new message at the beginning
     messages.unshift(newMessage);
-    
+
     await saveMessages(messages);
 
     // Revalidate the admin dashboard so the new message shows up immediately
