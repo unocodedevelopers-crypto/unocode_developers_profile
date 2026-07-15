@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 /* eslint-disable */
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import ClientContactForm from '@/components/ClientContactForm';
 
 export type Testimonial = {
@@ -140,13 +141,13 @@ export default function HomePageClient({
                     <path d="M7 17 17 7" />
                 </svg></span>
             </div>
-            <dialog className="modal w-full text-white transition-none before:rounded-lg">
+            <dialog className="modal w-full text-gray-900 transition-none before:rounded-lg">
                 <form method="dialog" className="modal-backdrop h-screen"><button aria-label="close" tabIndex={-1}></button>
                 </form>
                 <div
-                    className="glass-border modal-box fixed top-[15%] mx-2 w-[calc(100%-16px)] max-w-md overflow-hidden rounded-lg bg-gray-900/40 backdrop-blur-xl before:rounded-lg">
+                    className="glass-border modal-box fixed top-[15%] mx-2 w-[calc(100%-16px)] max-w-md overflow-hidden rounded-lg bg-white/70 backdrop-blur-xl before:rounded-lg">
                     <form method="dialog"><button
-                        className="absolute right-4 top-4 text-white transition-colors hover:text-gray-200"
+                        className="absolute right-4 top-4 text-gray-900 transition-colors hover:text-gray-800"
                         aria-label="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                             strokeLinecap="round" strokeLinejoin="round"
@@ -164,59 +165,82 @@ export default function HomePageClient({
                                 <h4 className="font-medium">Analytics Cookies</h4>
                                 <p className="text-sm">These cookies help me improve my website by collecting and analyzing
                                     information about how the website is used.</p> <label
-                                        className="label flex w-fit cursor-pointer gap-3 text-sm text-white"><input type="checkbox"
+                                        className="label flex w-fit cursor-pointer gap-3 text-sm text-gray-900"><input type="checkbox"
                                             defaultChecked
-                                            className="checkbox checkbox-sm rounded-md border-gray-800 bg-gray-800 transition-colors [--chkbg:theme(colors.gray.700)] [--chkfg:theme(colors.gray.50)] hover:bg-gray-700" />
+                                            className="checkbox checkbox-sm rounded-md border-gray-800 bg-gray-100 transition-colors [--chkbg:theme(colors.gray.700)] [--chkfg:theme(colors.gray.50)] hover:bg-gray-700" />
                                 </label>
                             </div>
                         </div>
                         <div className="flex w-full justify-end gap-2 text-xs normal-case"><button id=""
                             className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center py-3 bg-gray-600/20 backdrop-blur-sm hover:bg-gray-700/20 shadow transition-colors text-xs px-5">Cancel
                         </button> <button id=""
-                            className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center py-3 bg-gray-50 hover:bg-gray-100 hover:shadow-none shadow-button-glow transition-[box-shadow,background-color] text-black font-semibold normal-case px-5 text-xs">Save
+                            className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center py-3 bg-gray-50 hover:bg-gray-100 hover:shadow-none shadow-md transition-[box-shadow,background-color] text-black font-semibold normal-case px-5 text-xs">Save
                             </button></div>
                     </div>
                 </div>
             </dialog>
-            <div id="layout-gradient"
-                className="fixed left-0 top-0 -z-50 h-[85vh] w-full bg-gradient-to-br opacity-25 from-[#c6147f] to-[#33044A]">
-            </div>
-            <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-clip"><Header />
+            <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-clip z-0">
+                <video
+                    autoPlay loop muted playsInline
+                    className="absolute top-0 left-0 w-full h-screen object-cover z-0"
+                    src="/video.mp4"
+                />
+                <div className="absolute left-0 top-0 h-screen w-full bg-black/40 z-0 pointer-events-none"></div>
+                <Header />
                 <div className="w-full flex-1 px-5 pt-32 md:pt-36 lg:px-10 lg:pt-40 xl:pt-44">
                     <div id="home-gradient"
-                        className="fixed left-0 top-0 -z-50 h-[95vh] w-full bg-gradient-to-tl from-[#c6147f] to-[#33044A] opacity-0">
+                        className="absolute left-0 top-0 -z-50 h-[95vh] w-full bg-gradient-to-tl from-gray-100 to-white opacity-0">
                     </div>
 
 
-                    <div className="relative z-10 flex w-full flex-col items-center justify-center gap-8 text-center xl:gap-12 2xl:gap-16 min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-9rem)] lg:min-h-[calc(100vh-10rem)] xl:min-h-[calc(100vh-11rem)] pb-20"
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1.5 }}
+                        className="relative z-10 flex w-full flex-col items-center justify-center gap-8 text-center xl:gap-12 2xl:gap-16 min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-9rem)] lg:min-h-[calc(100vh-10rem)] xl:min-h-[calc(100vh-11rem)] pb-20"
                         id="hero-wrapper">
-                        <h2 className="font-inria-sans text-lg font-thin uppercase tracking-wider md:text-xl xl:text-2xl 2xl:text-3xl"
-                            id="hero-supporting-title">Unocode Developers</h2>
-                        <div
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 1.6 }}
+                            className="font-inria-sans text-lg font-thin uppercase tracking-wider md:text-xl xl:text-2xl 2xl:text-3xl"
+                            id="hero-supporting-title">Unocode Developers</motion.h2>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 1.8, type: 'spring', stiffness: 100 }}
                             className="font-inria-sans text-4xl font-bold capitalize leading-[44px] tracking-[.15em] xl:text-5xl 2xl:text-6xl">
                             <h1>Simple. <br className="sm:hidden" /> Elegant. Animated.</h1>
-                        </div>
-                        <p
+                        </motion.div>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 2.0 }}
                             className="flex flex-wrap justify-center gap-x-1 tracking-wide xs:px-16 lg:gap-x-1.5 xl:text-lg 2xl:text-xl">
                             <span>Elevate your brand with digital experiences</span><span>built to leave a lasting impression.</span>
-                        </p> <a id=""
-                            className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center px-8 py-3 bg-gray-50 hover:bg-gray-100 hover:shadow-none uppercase shadow-button-glow transition-[box-shadow,background-color] text-black font-semibold text-sm mt-6"
+                        </motion.p> <motion.a id=""
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 2.2 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center px-8 py-3 bg-gray-50 hover:bg-gray-100 hover:shadow-none uppercase shadow-md transition-[box-shadow,background-color] text-black font-semibold text-sm mt-6"
                             href="/contact" target="_self" rel="">Start project
-                        </a>
-                    </div>
+                        </motion.a>
+                    </motion.div>
                     <div className="pointer-events-none fixed left-0 top-0 h-full w-full bg-black opacity-20"
                         id="hero-backdrop"></div> <button id="scrollToExplore"
                             className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center hover:decoration-white/75 decoration-white/40 underline-offset-4 group group text-sm transition-none no-underline fixed bottom-8 left-1/2 z-10 -translate-x-1/2 px-4 py-2 text-transparent sm:left-8 sm:translate-x-0">scroll
                         to explore <span
                             className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff"
+                                xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827"
                                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                 className="lucide-icon lucide lucide-triangle">
                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
 
                             </svg></span> <span
                                 className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff"
+                                    xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827"
                                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                     className="lucide-icon lucide lucide-triangle">
                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
@@ -226,7 +250,12 @@ export default function HomePageClient({
                         <div className="relative">
                             <div id="social-proof-heading-wrapper"
                                 className="relative flex pt-16 pb-12 flex-col items-center justify-center">
-                                <div className="flex w-full flex-col items-start gap-2 text-left lg:items-center lg:gap-4 lg:text-center max-w-96 lg:max-w-lg 2xl:max-w-xl"
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.8 }}
+                                    className="flex w-full flex-col items-start gap-2 text-left lg:items-center lg:gap-4 lg:text-center max-w-96 lg:max-w-lg 2xl:max-w-xl"
                                     id="heading-container-undefined">
                                     <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
                                         id="heading-title-testimonials">
@@ -234,31 +263,38 @@ export default function HomePageClient({
                                     </h2>
                                     <p className="text-sm lg:text-base 2xl:text-lg">
                                         We build modern, responsive, and high-performance websites that help businesses grow online. At Unocode Developers, we combine creativity, innovation, and technology to deliver digital solutions tailored to your goals.</p>
-                                </div>
+                                </motion.div>
                             </div>
                             <div id="social-proof-scroller"></div>
                         </div>
                         <div className="relative flex w-full flex-col items-center gap-5 pb-24"><span className="absolute -top-[400px] lg:-top-[600px]" id="reviews"></span>
                             <div className="flex w-full flex-wrap justify-center gap-6 pb-24 lg:pb-52"
                                 id="desktop-reviews">
-                                {testimonials.map((testimonial) => (
-                                    <div key={testimonial.id} className="flex w-full max-w-sm flex-col gap-6 rounded-xl border border-white/5 bg-gray-900/40 p-8 shadow-lg backdrop-blur-md">
-                                        <span className="text-4xl font-serif text-white/80">“</span>
-                                        <p className="flex-1 text-sm leading-relaxed text-gray-300">{testimonial.text}</p>
+                                {testimonials.map((testimonial, index) => (
+                                    <motion.div
+                                        key={testimonial.id}
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                        transition={{ duration: 0.6, delay: index * 0.15 }}
+                                        whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
+                                        className="flex w-full max-w-sm flex-col gap-6 rounded-xl border border-black/5 bg-white/70 p-8 shadow-lg backdrop-blur-md">
+                                        <span className="text-4xl font-serif text-gray-800">“</span>
+                                        <p className="flex-1 text-sm leading-relaxed text-gray-700">{testimonial.text}</p>
                                         <div className="flex items-center gap-4">
                                             {testimonial.imageUrl ? (
-                                                <img src={testimonial.imageUrl} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border border-white/10" />
+                                                <img src={testimonial.imageUrl} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border border-black/10" />
                                             ) : (
-                                                <div className="w-12 h-12 rounded-full bg-base-300 flex items-center justify-center text-xl font-bold">
+                                                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold">
                                                     {testimonial.name.charAt(0)}
                                                 </div>
                                             )}
                                             <div>
-                                                <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                                                <p className="text-xs text-gray-400">{testimonial.company}</p>
+                                                <p className="text-sm font-semibold text-gray-900">{testimonial.name}</p>
+                                                <p className="text-xs text-gray-600">{testimonial.company}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
@@ -276,9 +312,15 @@ export default function HomePageClient({
                                 {projects.map((project, index) => {
                                     const isReversed = index % 2 !== 0;
                                     return (
-                                        <div key={project.id} className={`relative flex max-w-lg flex-col gap-7 lg:max-w-6xl lg:items-center lg:gap-12 ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+                                        <motion.div
+                                            key={project.id}
+                                            initial={{ opacity: 0, x: isReversed ? 50 : -50 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true, margin: "-100px" }}
+                                            transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
+                                            className={`relative flex max-w-lg flex-col gap-7 lg:max-w-6xl lg:items-center lg:gap-12 ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                                             <button
-                                                className="mouse-follow group relative cursor-none transition-shadow duration-1000 lg:w-2/3 shadow-image-glow"
+                                                className="mouse-follow group relative cursor-none transition-shadow duration-1000 lg:w-2/3 shadow-lg"
                                                 data-type="popup" id={`thumbnail-button-${project.id}`}>
                                                 <div className="group relative aspect-[1.872074883]">
                                                     <img
@@ -301,25 +343,25 @@ export default function HomePageClient({
                                                     {project.title}</h2>
                                                 <div className="flex flex-col gap-4 text-sm xl:text-base">
                                                     {project.description.map((desc, i) => (
-                                                        <p key={i} className="text-gray-200">{desc}</p>
+                                                        <p key={i} className="text-gray-800">{desc}</p>
                                                     ))}
                                                     <button id=""
                                                         className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4">
                                                         Learn more
                                                         <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                                                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                                                             </svg>
                                                         </span>
                                                         <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                                                                 <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                                                             </svg>
                                                         </span>
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     );
                                 })}
                             </div>
@@ -334,8 +376,15 @@ export default function HomePageClient({
                             </div>
                             <div className="flex w-full flex-col items-center gap-10">
                                 <div className="mouse-follow mt-6 grid w-full cursor-none grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3" data-type="popup">
-                                    {concepts.map((concept) => (
-                                        <button key={concept.id} className="group relative aspect-[1.40625] w-full cursor-none transition-[transform,box-shadow] duration-500 motion-safe:hover:scale-[.97] shadow-image-glow" id={`thumbnail-button-${concept.id}`}>
+                                    {concepts.map((concept, index) => (
+                                        <motion.button
+                                            key={concept.id}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                                            whileHover={{ scale: 0.95 }}
+                                            className="group relative aspect-[1.40625] w-full cursor-none shadow-lg" id={`thumbnail-button-${concept.id}`}>
                                             <img
                                                 className="absolute -z-10 rounded opacity-0 blur-2xl brightness-150 transition-opacity duration-700 group-hover:opacity-50"
                                                 src={concept.imageUrl}
@@ -346,7 +395,7 @@ export default function HomePageClient({
                                                 alt={`Concept design for ${concept.title}`} width="1440" height="1024"
                                                 loading="lazy" data-flip-id="thumbnail-image"
                                                 id={`thumbnail-image-${concept.id}`} />
-                                        </button>
+                                        </motion.button>
                                     ))}
                                 </div>
                                 <button id=""
@@ -381,10 +430,16 @@ export default function HomePageClient({
                         </div>
                         {bioEntries && bioEntries.length > 0 ? (
                             bioEntries.map((bio) => (
-                                <div key={bio.id} className="relative flex justify-center mb-20">
+                                <motion.div
+                                    key={bio.id}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.8 }}
+                                    className="relative flex justify-center mb-20">
                                     <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
                                         <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
-                                            className="rounded-xl shadow-image-glow transition-shadow duration-1000 hover:shadow-none"
+                                            className="rounded-xl shadow-lg transition-shadow duration-1000 hover:shadow-none"
                                             src={bio.imageUrl || "Portrait%20Leon%20Obermann%201.webp"} alt="Portrait"
                                             loading="lazy" width="444" height="592" /></div>
                                         <div className="relative flex w-full flex-col gap-4 text-sm tracking-wide lg:text-base">
@@ -399,7 +454,7 @@ export default function HomePageClient({
                                                 href="/about" target="_self" rel="">Learn more <span
                                                     className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                                        fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                                        fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                                                         strokeLinejoin="round"
                                                         className="lucide-icon lucide lucide-triangle">
                                                         <path
@@ -407,7 +462,7 @@ export default function HomePageClient({
                                                     </svg></span> <span
                                                         className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
                                                             xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                                            fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                                            fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                                                             strokeLinejoin="round"
                                                             className="lucide-icon lucide lucide-triangle">
                                                         <path
@@ -415,7 +470,7 @@ export default function HomePageClient({
                                                     </svg></span></a>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))
                         ) : null}
 
@@ -473,7 +528,7 @@ export default function HomePageClient({
                                         <span
                                             className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                 strokeLinecap="round" strokeLinejoin="round"
                                                 className="lucide-icon lucide lucide-triangle">
                                                 <path
@@ -483,7 +538,7 @@ export default function HomePageClient({
                                             </svg></span> <span
                                                 className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                    viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                    viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                     strokeLinecap="round" strokeLinejoin="round"
                                                     className="lucide-icon lucide lucide-triangle">
                                                 <path
@@ -507,7 +562,7 @@ export default function HomePageClient({
                                                 </svg></span> <span>+91 80722 24577 , +91 88386 08103</span> <span
                                                     className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                        viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                        viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                         strokeLinecap="round" strokeLinejoin="round"
                                                         className="lucide-icon lucide lucide-triangle">
                                                     <path
@@ -517,7 +572,7 @@ export default function HomePageClient({
                                                 </svg></span> <span
                                                     className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                        viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                        viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                         strokeLinecap="round" strokeLinejoin="round"
                                                         className="lucide-icon lucide lucide-triangle">
                                                     <path
@@ -546,7 +601,7 @@ export default function HomePageClient({
                                             <span
                                                 className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                    viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                    viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                     strokeLinecap="round" strokeLinejoin="round"
                                                     className="lucide-icon lucide lucide-triangle">
                                                     <path
@@ -556,7 +611,7 @@ export default function HomePageClient({
                                                 </svg></span> <span
                                                     className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="6" height="6"
-                                                        viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="2"
+                                                        viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2"
                                                         strokeLinecap="round" strokeLinejoin="round"
                                                         className="lucide-icon lucide lucide-triangle">
                                                     <path
