@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import HomePageClient, { Testimonial, Project, Concept } from "@/components/HomePageClient";
+import HomePageClient, { Testimonial, Project, Concept, BioEntry } from "@/components/HomePageClient";
 
 async function getTestimonials(): Promise<Testimonial[]> {
   const filePath = path.join(process.cwd(), "data", "testimonials.json");
@@ -32,10 +32,21 @@ async function getConcepts(): Promise<Concept[]> {
   }
 }
 
+async function getBioEntries(): Promise<BioEntry[]> {
+  const filePath = path.join(process.cwd(), "data", "bio.json");
+  if (!fs.existsSync(filePath)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  } catch (e) {
+    return [];
+  }
+}
+
 export default async function Page() {
   const testimonials = await getTestimonials();
   const projects = await getProjects();
   const concepts = await getConcepts();
+  const bioEntries = await getBioEntries();
   
-  return <HomePageClient testimonials={testimonials} projects={projects} concepts={concepts} />;
+  return <HomePageClient testimonials={testimonials} projects={projects} concepts={concepts} bioEntries={bioEntries} />;
 }

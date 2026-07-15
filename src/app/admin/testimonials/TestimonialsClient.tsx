@@ -20,7 +20,7 @@ export default function TestimonialsClient({ initialTestimonials }: { initialTes
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold">Bio Data Management</h1>
-        <button 
+        <button
           className="btn btn-primary"
           onClick={() => setIsAdding(!isAdding)}
         >
@@ -37,7 +37,7 @@ export default function TestimonialsClient({ initialTestimonials }: { initialTes
               if (res.success) {
                 setIsAdding(false);
                 // Simple reload to get fresh data instead of complex optimistic UI
-                window.location.reload(); 
+                window.location.reload();
               }
             }} className="space-y-4">
               <div className="form-control">
@@ -85,15 +85,15 @@ export default function TestimonialsClient({ initialTestimonials }: { initialTes
                 <>
                   <div className="flex gap-4 mb-4">
                     {testimonial.imageUrl ? (
-                        <img src={testimonial.imageUrl.startsWith('http') ? testimonial.imageUrl : (testimonial.imageUrl.startsWith('.') ? testimonial.imageUrl.substring(1) : (testimonial.imageUrl.startsWith('/') ? testimonial.imageUrl : `/${testimonial.imageUrl}`))} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover border border-base-300" />
+                      <img src={testimonial.imageUrl.startsWith('http') ? testimonial.imageUrl : (testimonial.imageUrl.startsWith('.') ? testimonial.imageUrl.substring(1) : (testimonial.imageUrl.startsWith('/') ? testimonial.imageUrl : `/${testimonial.imageUrl}`))} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover border border-base-300" />
                     ) : (
-                        <div className="w-16 h-16 rounded-full bg-base-300 flex items-center justify-center text-2xl font-bold">
-                            {testimonial.name.charAt(0)}
-                        </div>
+                      <div className="w-16 h-16 rounded-full bg-base-300 flex items-center justify-center text-2xl font-bold">
+                        {testimonial.name.charAt(0)}
+                      </div>
                     )}
                     <div>
-                        <p className="font-bold text-lg">{testimonial.name}</p>
-                        <p className="text-sm text-base-content/70">{testimonial.company}</p>
+                      <p className="font-bold text-lg">{testimonial.name}</p>
+                      <p className="text-sm text-base-content/70">{testimonial.company}</p>
                     </div>
                   </div>
                   <p className="italic text-lg">"{testimonial.text}"</p>
