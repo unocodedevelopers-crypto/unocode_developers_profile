@@ -18,7 +18,11 @@ const getTestimonials = (): Testimonial[] => {
 };
 
 const saveTestimonials = (testimonials: Testimonial[]) => {
-  fs.writeFileSync(getFilePath(), JSON.stringify(testimonials, null, 2));
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(testimonials, null, 2));
+  } catch (error) {
+    console.error("Failed to write to file system. Note: Vercel has a read-only filesystem.", error);
+  }
 };
 
 export async function addTestimonial(formData: FormData) {

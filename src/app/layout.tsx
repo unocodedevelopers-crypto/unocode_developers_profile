@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web Design for Visual Brands | Obermann Web Design",
-  description: "Webdesign and web development from Cologne, NRW. Custom high-end websites for visual brands. Individually conceived, designed and programmed.",
+  title: "Unocode Developers",
+  description: "Webdesign and web development from Madurai, TN. Custom high-end websites for visual brands. Individually conceived, designed and programmed.",
 };
 
 export default function RootLayout({

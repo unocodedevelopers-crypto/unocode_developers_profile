@@ -25,7 +25,11 @@ const getBioEntries = (): BioEntry[] => {
 };
 
 const saveBioEntries = (entries: BioEntry[]) => {
-  fs.writeFileSync(getFilePath(), JSON.stringify(entries, null, 2));
+  try {
+    fs.writeFileSync(getFilePath(), JSON.stringify(entries, null, 2));
+  } catch (error) {
+    console.error("Failed to write to file system. Note: Vercel has a read-only filesystem.", error);
+  }
 };
 
 export async function addBio(formData: FormData) {

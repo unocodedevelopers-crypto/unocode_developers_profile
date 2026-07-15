@@ -67,7 +67,7 @@ export default function HomePageClient({
                             position: fixed;
                             inset: 0;
                             z-index: 9999;
-                            background: #0d0710;
+                            background: #0f0c29;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
