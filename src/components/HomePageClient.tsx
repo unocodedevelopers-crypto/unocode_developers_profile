@@ -309,16 +309,16 @@ export default function HomePageClient({
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-32 pt-12 sm:gap-44 lg:gap-64">
-                        <div className="relative flex flex-col items-center gap-12 lg:gap-20"><span className="absolute -top-20"
+                    <div className="flex flex-col gap-20 pt-12 sm:gap-24 lg:gap-32">
+                        <div className="relative flex flex-col items-center gap-10 lg:gap-16"><span className="absolute -top-20"
                             id="projects"></span>
                             <div className="flex w-full flex-col gap-2 text-left lg:items-center lg:gap-4 lg:text-center max-w-lg lg:max-w-6xl items-center"
                                 id="heading-container-projects">
                                 <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
-                                    id="heading-title-projects"></h2>
+                                    id="heading-title-projects">Projects</h2>
 
                             </div>
-                            <div className="flex flex-col items-center gap-28 lg:px-10 xl:gap-44">
+                            <div className="flex flex-col items-center gap-16 lg:px-10 xl:gap-24">
                                 {projects.map((project, index) => {
                                     const isReversed = index % 2 !== 0;
                                     return (
@@ -353,22 +353,8 @@ export default function HomePageClient({
                                                     {project.title}</h2>
                                                 <div className="flex flex-col gap-4 text-sm xl:text-base">
                                                     {project.description.map((desc, i) => (
-                                                        <p key={i} className="text-gray-800">{desc}</p>
+                                                        <p key={i} className="text-gray-300 leading-relaxed">{desc}</p>
                                                     ))}
-                                                    <button id=""
-                                                        className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4">
-                                                        Learn more
-                                                        <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
-                                                                <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                                                            </svg>
-                                                        </span>
-                                                        <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
-                                                                <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                                                            </svg>
-                                                        </span>
-                                                    </button>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -381,7 +367,7 @@ export default function HomePageClient({
                             <div className="flex w-full flex-col gap-2 text-left lg:items-center lg:gap-4 lg:text-center items-center"
                                 id="heading-container-undefined">
                                 <h2 className="font-inria-sans text-3xl leading-10 tracking-wide lg:text-4xl 2xl:text-5xl"
-                                    id="heading-title-undefined"></h2>
+                                    id="heading-title-undefined">We Offers</h2>
 
                             </div>
                             <div className="flex w-full flex-col items-center gap-10">
@@ -408,9 +394,6 @@ export default function HomePageClient({
                                         </motion.button>
                                     ))}
                                 </div>
-                                <button id=""
-                                    className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center px-8 py-3 bg-gray-600/20 backdrop-blur-sm hover:bg-gray-700/20 shadow transition-colors text-sm">Show
-                                    more </button>
                             </div>
                         </div>
                         <div className="fixed left-0 top-0 z-40 h-screen w-full pointer-events-none">
@@ -447,7 +430,7 @@ export default function HomePageClient({
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.8 }}
-                                    className="relative flex justify-center mb-20">
+                                    className="relative flex justify-center">
                                     <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
                                         <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
                                             className="rounded-xl shadow-lg transition-shadow duration-1000 hover:shadow-none"
@@ -485,7 +468,7 @@ export default function HomePageClient({
                             ))
                         ) : null}
 
-                        <div id="cta-intro-container" className="relative flex w-full justify-center py-10">
+                        <div id="cta-intro-container" className="relative flex w-full justify-center pb-10">
                             <div id="cta-intro-background"
                                 className="pointer-events-none absolute -left-1/4 -top-[75%] flex h-[250%] w-[150%] items-center justify-center">
                                 <div className="dots h-full w-full max-w-screen-2xl svelte-1befunw"></div>
