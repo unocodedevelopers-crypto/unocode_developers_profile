@@ -5,16 +5,16 @@ import { Project, Concept } from "@/components/HomePageClient";
 import { addProject, deleteProject, updateProject } from "@/actions/projects";
 import { addConcept, deleteConcept, updateConcept } from "@/actions/concepts";
 
-export default function ProjectsClient({ 
-  initialProjects, 
-  initialConcepts 
-}: { 
-  initialProjects: Project[], 
-  initialConcepts: Concept[] 
+export default function ProjectsClient({
+  initialProjects,
+  initialConcepts
+}: {
+  initialProjects: Project[],
+  initialConcepts: Concept[]
 }) {
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [concepts, setConcepts] = useState<Concept[]>(initialConcepts);
-  
+
   const [isAddingProject, setIsAddingProject] = useState(false);
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
 
@@ -41,7 +41,7 @@ export default function ProjectsClient({
       <section className="space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl font-bold">Featured Projects</h2>
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => setIsAddingProject(!isAddingProject)}
           >
@@ -57,7 +57,7 @@ export default function ProjectsClient({
                 const res = await addProject(formData);
                 if (res.success) {
                   setIsAddingProject(false);
-                  window.location.reload(); 
+                  window.location.reload();
                 }
               }} className="space-y-4">
                 <div className="form-control">
@@ -143,7 +143,7 @@ export default function ProjectsClient({
       <section className="space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl font-bold">Concepts</h2>
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => setIsAddingConcept(!isAddingConcept)}
           >
@@ -159,7 +159,7 @@ export default function ProjectsClient({
                 const res = await addConcept(formData);
                 if (res.success) {
                   setIsAddingConcept(false);
-                  window.location.reload(); 
+                  window.location.reload();
                 }
               }} className="space-y-4">
                 <div className="form-control">

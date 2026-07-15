@@ -29,14 +29,24 @@ export type Concept = {
   imageUrl: string;
 };
 
+export type BioEntry = {
+  id: string;
+  greeting: string;
+  text: string;
+  closing: string;
+  imageUrl?: string;
+};
+
 export default function HomePageClient({ 
     testimonials,
     projects,
-    concepts
+    concepts,
+    bioEntries
 }: { 
     testimonials: Testimonial[],
     projects: Project[],
-    concepts: Concept[]
+    concepts: Concept[],
+    bioEntries?: BioEntry[]
 }) {
     const [showPreloader, setShowPreloader] = useState(true);
 
@@ -370,47 +380,45 @@ export default function HomePageClient({
                                     the design</h2>
                             </div>
                         </div>
-                        <div className="relative flex justify-center">
-                            <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
-                                <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
-                                    className="rounded-xl shadow-image-glow transition-shadow duration-1000 hover:shadow-none"
-                                    src="Portrait%20Leon%20Obermann%201.webp" alt="Portrait of Leon Obermann"
-                                    loading="lazy" width="444" height="592" /></div>
-                                <div className="relative flex w-full flex-col gap-4 text-sm tracking-wide lg:text-base">
-                                    <div id="about-gradient"
-                                        className="absolute -left-1/4 -top-2/3 -z-50 h-[175%] w-[150%] rounded-full bg-gradient-to-tr from-[#440303] to-[#c63d14] opacity-[0.1] lg:-left-80 lg:-top-[12.5%] lg:h-[125%] lg:w-[200%]">
+                        {bioEntries && bioEntries.length > 0 ? (
+                            bioEntries.map((bio) => (
+                                <div key={bio.id} className="relative flex justify-center mb-20">
+                                    <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
+                                        <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
+                                            className="rounded-xl shadow-image-glow transition-shadow duration-1000 hover:shadow-none"
+                                            src={bio.imageUrl || "Portrait%20Leon%20Obermann%201.webp"} alt="Portrait"
+                                            loading="lazy" width="444" height="592" /></div>
+                                        <div className="relative flex w-full flex-col gap-4 text-sm tracking-wide lg:text-base">
+                                            <div id="about-gradient"
+                                                className="absolute -left-1/4 -top-2/3 -z-50 h-[175%] w-[150%] rounded-full bg-gradient-to-tr from-[#440303] to-[#c63d14] opacity-[0.1] lg:-left-80 lg:-top-[12.5%] lg:h-[125%] lg:w-[200%]">
+                                            </div>
+                                            <h3 className="font-inria-sans text-3xl font-bold tracking-wide">{bio.greeting}</h3>
+                                            <div style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: bio.text }}></div>
+                                            
+                                            <p>{bio.closing}</p> <a id=""
+                                                className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4"
+                                                href="/about" target="_self" rel="">Learn more <span
+                                                    className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
+                                                        fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        className="lucide-icon lucide lucide-triangle">
+                                                        <path
+                                                            d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                                                    </svg></span> <span
+                                                        className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
+                                                            fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            className="lucide-icon lucide lucide-triangle">
+                                                        <path
+                                                            d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                                                    </svg></span></a>
+                                        </div>
                                     </div>
-                                    <h3 className="font-inria-sans text-3xl font-bold tracking-wide">Hey,</h3>
-                                    <p style={{ textAlign: "justify" }}>Hello! I'm Indhumathi, an MCA graduate and an aspiring Software Developer with a passion for creating modern, responsive, and user-centric web applications. I have hands-on experience with <b className="font-semibold"> HTML, CSS, JavaScript, React.js, React Native, Java, Python, and MySQL </b>
-                                        along with a solid understanding of front-end development principles and database management.
-                                    </p>
-
-                                    <p>Let's make your website something extraordinary!</p> <a id=""
-                                        className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 underline decoration-white/40 underline-offset-4 group relative px-4 py-2 -ml-4"
-                                        href="/about" target="_self" rel="">Learn more <span
-                                            className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                                fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="lucide-icon lucide lucide-triangle">
-                                                <path
-                                                    d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-
-
-                                            </svg></span> <span
-                                                className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                                                    fill="#fff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    className="lucide-icon lucide lucide-triangle">
-                                                <path
-                                                    d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-
-
-                                            </svg></span></a>
                                 </div>
-                            </div>
-                        </div>
+                            ))
+                        ) : null}
 
                         <div id="cta-intro-container" className="relative flex w-full justify-center py-10">
                             <div id="cta-intro-background"
