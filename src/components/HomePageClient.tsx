@@ -56,7 +56,7 @@ export default function HomePageClient({
         target: aboutIntroRef,
         offset: ["start end", "end start"]
     });
-    
+
     // Animate texts to start separated, join in the middle (0%), and continue moving
     const upperTextX = useTransform(scrollYProgress, [0, 0.5, 1], ["-25%", "0%", "25%"]);
     const lowerTextX = useTransform(scrollYProgress, [0, 0.5, 1], ["25%", "0%", "-25%"]);
@@ -436,7 +436,7 @@ export default function HomePageClient({
                                 <motion.h2 id="about-intro-upper-text" className="w-full whitespace-nowrap" style={{ x: upperTextX }}>Meet the <b className="font-medium">person</b>
                                 </motion.h2>
                                 <motion.h2 id="about-intro-lower-text" className="w-full text-right whitespace-nowrap" style={{ x: lowerTextX }}><b className="font-medium">behind</b> the design
-                                 </motion.h2>
+                                </motion.h2>
                             </div>
                         </div>
                         {bioEntries && bioEntries.length > 0 ? (
@@ -448,9 +448,9 @@ export default function HomePageClient({
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.8 }}
                                     className="relative flex justify-center mb-20">
-                                    <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
-                                        <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
-                                            className="rounded-xl shadow-lg transition-shadow duration-1000 hover:shadow-none"
+                                    <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12 lg:items-center">
+                                        <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full flex items-center justify-center"><img
+                                            className="rounded-xl shadow-lg transition-shadow duration-1000 hover:shadow-none object-contain w-full h-full"
                                             src={bio.imageUrl || "Portrait%20Leon%20Obermann%201.webp"} alt="Portrait"
                                             loading="lazy" width="444" height="592" /></div>
                                         <div className="relative flex w-full flex-col gap-4 text-sm tracking-wide lg:text-base">

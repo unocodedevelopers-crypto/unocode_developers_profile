@@ -3,9 +3,9 @@ export default function Footer() {
     <>
       <div className="relative flex w-full flex-col items-center gap-12 overflow-clip bg-black/20 pb-6 pt-9 sm:gap-16 sm:pt-12">
         <div className="flex w-full max-w-3xl justify-evenly text-xs xs:text-sm"></div>
-        <div className="flex w-full flex-wrap items-center justify-center gap-x-5 gap-y-2 px-6 text-xs tracking-wider text-gray-800 sm:gap-x-7">
+        <div className="flex w-full flex-wrap items-center justify-center gap-x-5 gap-y-2 px-6 text-xs tracking-wider text-white sm:gap-x-7">
           <p className="px-2 py-1 text-center">Copyright © 2026 UNOCODE DEVELOPERS</p> 
-          <svg viewBox="-2 -6 38 32" fill="currentColor" className="w-8 h-8 mx-2 text-gray-900" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="-2 -6 38 32" fill="currentColor" className="w-8 h-8 mx-2 text-white" xmlns="http://www.w3.org/2000/svg">
             <rect x="2" y="5" width="3" height="3" />
             <rect x="5.5" y="2.5" width="2.5" height="2.5" />
             <rect x="1" y="1" width="2.5" height="2.5" />

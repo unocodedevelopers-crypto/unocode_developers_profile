@@ -7,10 +7,10 @@ export default function Header() {
   return (
     <>
       <a
-        className="group fixed top-2 left-4 z-50 flex h-14 items-center gap-2 rounded-sm px-5 !opacity-100 lg:gap-3 text-gray-900"
+        className="group fixed top-2 left-4 z-50 flex h-14 items-center gap-2 rounded-sm px-5 !opacity-100 lg:gap-3 text-white"
         href="/"
       >
-        <svg className="w-8 h-8 text-gray-900" viewBox="-2 -6 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-8 h-8 text-white" viewBox="-2 -6 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           {/* Flying Pixels for U */}
           <rect x="2" y="5" width="3" height="3" />
           <rect x="5.5" y="2.5" width="2.5" height="2.5" />
@@ -138,7 +138,7 @@ export default function Header() {
                 </svg></span> <span
                   className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-2.5 group-hover:right-0.5 motion-reduce:right-0.5"><svg
                     xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
-                    fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                    fill="#9a9ca0ff" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                     strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
 
