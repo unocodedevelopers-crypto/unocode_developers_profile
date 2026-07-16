@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 import { getAboutSections } from '@/actions/about';
+import AboutCarousel from '@/components/AboutCarousel';
 
 /* eslint-disable */
 
@@ -22,6 +23,19 @@ export default async function AboutPage() {
 
           {/* Dynamic Sections */}
           {sections.map((section, idx) => {
+            if (section.id === 'why-choose-us') {
+              return (
+                <div key={section.id} className={`flex flex-col gap-6 w-full max-w-7xl self-start ${idx > 0 || section.title ? 'mt-10' : ''}`}>
+                  {section.title && (
+                    <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-6 text-center w-full text-white">
+                      {section.title}
+                    </h2>
+                  )}
+                  <AboutCarousel />
+                </div>
+              );
+            }
+
             if (section.imageUrl) {
               const imageLeft = idx % 2 === 0;
               return (
