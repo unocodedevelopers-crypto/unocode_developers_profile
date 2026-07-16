@@ -333,14 +333,35 @@ export default function HomePageClient({
                                                 className="mouse-follow group relative cursor-none transition-shadow duration-1000 lg:w-2/3 shadow-lg"
                                                 data-type="popup" id={`thumbnail-button-${project.id}`}>
                                                 <div className="group relative aspect-[1.872074883]">
-                                                    <img
-                                                        className="absolute -z-10 rounded opacity-0 blur-2xl brightness-[3] saturate-150 transition-opacity duration-700 group-hover:opacity-50"
-                                                        src={project.imageUrl}
-                                                        alt={`Background blur for project ${project.title}`} loading="lazy" width="1200" height="641" />
-                                                    <img className="thumbnail-image rounded"
-                                                        src={project.imageUrl}
-                                                        alt={`Screenshot of website for ${project.title}`} loading="lazy" width="1200" height="641" data-flip-id="thumbnail-image"
-                                                        id={`thumbnail-image-${project.id}`} />
+                                                    {project.imageUrl.endsWith('.mp4') ? (
+                                                        <>
+                                                            <video
+                                                                className="absolute -z-10 rounded opacity-0 blur-2xl brightness-[3] saturate-150 transition-opacity duration-700 group-hover:opacity-50"
+                                                                src={project.imageUrl}
+                                                                autoPlay loop muted playsInline
+                                                                width="1200" height="641"
+                                                            />
+                                                            <video
+                                                                className="thumbnail-image rounded"
+                                                                src={project.imageUrl}
+                                                                autoPlay loop muted playsInline
+                                                                width="1200" height="641"
+                                                                data-flip-id="thumbnail-image"
+                                                                id={`thumbnail-image-${project.id}`}
+                                                            />
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <img
+                                                                className="absolute -z-10 rounded opacity-0 blur-2xl brightness-[3] saturate-150 transition-opacity duration-700 group-hover:opacity-50"
+                                                                src={project.imageUrl}
+                                                                alt={`Background blur for project ${project.title}`} loading="lazy" width="1200" height="641" />
+                                                            <img className="thumbnail-image rounded"
+                                                                src={project.imageUrl}
+                                                                alt={`Screenshot of website for ${project.title}`} loading="lazy" width="1200" height="641" data-flip-id="thumbnail-image"
+                                                                id={`thumbnail-image-${project.id}`} />
+                                                        </>
+                                                    )}
                                                 </div>
                                             </button>
                                             <div className="relative flex flex-col gap-2 lg:w-1/3">
