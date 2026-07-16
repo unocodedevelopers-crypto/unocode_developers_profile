@@ -3,13 +3,15 @@
     "id": "description",
     "title": "Description",
     "content": "At Unocode Developers, we specialize in designing and developing modern, high-performance websites that combine elegant design with powerful functionality. Every project is crafted with attention to detail, ensuring speed, responsiveness, security, and an exceptional user experience across all devices.\r\n\r\nWhether you're a startup, small business, or growing brand, we transform ideas into scalable digital solutions that help your business stand out online.",
-    "order": 1
+    "order": 1,
+    "imageUrl": "/uploads/1784197246007-belleza_600x400.webp"
   },
   {
     "id": "what-we-do",
     "title": "What We Do",
     "content": "Custom Website Development\r\nResponsive Web Design\r\nE-Commerce Solutions\r\nPortfolio & Business Websites\r\nUI/UX Design\r\nLanding Pages\r\nWebsite Maintenance\r\nPerformance Optimization\r\nSEO-Friendly Development",
-    "order": 2
+    "order": 2,
+    "imageUrl": "/uploads/1784197224224-cosmetics_600x400.webp"
   },
   {
     "id": "our-mission",

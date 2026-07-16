@@ -20,17 +20,46 @@ export default function AboutClient({ initialEntries }: { initialEntries: AboutS
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const file = formData.get('file') as File;
 
+    if (file && file.size > 0) {
+      const uploadData = new FormData();
+      uploadData.append('file', file);
+      
+      try {
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: uploadData,
+        });
+        const result = await res.json();
+        
+        if (result.success && result.url) {
+          formData.set('imageUrl', result.url);
+        }
+      } catch (err) {
+        console.error("Upload failed", err);
+        alert("Failed to upload image.");
+        return;
+      }
+    } else {
+      if (!formData.get('existingImageUrl')) {
+        formData.delete('imageUrl');
+      } else {
+        formData.set('imageUrl', formData.get('existingImageUrl') as string);
+      }
+    }
+
+    formData.delete('existingImageUrl');
     if (action === 'add') {
       const res = await addAboutSection(formData);
       if (res.success) {
         setIsAdding(false);
-        window.location.reload();
+        window.location.href = window.location.href;
       }
     } else if (action === 'update' && id) {
       await updateAboutSection(id, formData);
       setEditingId(null);
-      window.location.reload();
+      window.location.href = window.location.href;
     }
   };
 
@@ -62,6 +91,10 @@ export default function AboutClient({ initialEntries }: { initialEntries: AboutS
                 <label className="label"><span className="label-text">Main Text (HTML supported)</span></label>
                 <textarea name="content" className="textarea textarea-bordered h-32" required></textarea>
               </div>
+              <div className="form-control">
+                <label className="label"><span className="label-text">Image Upload (Optional - Used for Layout)</span></label>
+                <input type="file" name="file" accept="image/*" className="file-input file-input-bordered w-full" />
+              </div>
               <button type="submit" className="btn btn-success">Save Section</button>
             </form>
           </div>
@@ -86,6 +119,11 @@ export default function AboutClient({ initialEntries }: { initialEntries: AboutS
                     <label className="label"><span className="label-text">Order (lowest shows first)</span></label>
                     <input type="number" name="order" defaultValue={entry.order} className="input input-bordered w-32" required />
                   </div>
+                  <div className="form-control">
+                    <label className="label"><span className="label-text">New Image (Optional)</span></label>
+                    <input type="file" name="file" accept="image/*" className="file-input file-input-bordered file-input-sm w-full" />
+                    <input type="hidden" name="existingImageUrl" value={entry.imageUrl || ''} />
+                  </div>
                   <div className="flex gap-2 mt-4 pt-4 border-t border-base-200/50">
                     <button type="submit" className="btn btn-sm btn-success">Save</button>
                     <button type="button" onClick={() => setEditingId(null)} className="btn btn-sm">Cancel</button>
@@ -101,6 +139,12 @@ export default function AboutClient({ initialEntries }: { initialEntries: AboutS
                     <div dangerouslySetInnerHTML={{ __html: entry.content }}></div>
                   </div>
                   
+                  {entry.imageUrl && (
+                    <div className="mt-2 text-sm text-base-content/70">
+                      <strong>Attached Image:</strong> {entry.imageUrl}
+                    </div>
+                  )}
+
                   <div className="card-actions justify-start mt-4 pt-4 border-t border-base-200/50 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button onClick={() => setEditingId(entry.id)} className="btn btn-sm btn-ghost hover:bg-base-200 gap-1">
                       <Pencil size={14} /> Edit

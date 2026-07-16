@@ -10,6 +10,7 @@ export type AboutSection = {
   title: string;
   content: string;
   order: number;
+  imageUrl?: string;
 };
 
 const getFilePath = () => path.join(process.cwd(), "data", "about.json");
@@ -54,22 +55,24 @@ const saveAboutSections = async (entries: AboutSection[]) => {
 export async function addAboutSection(formData: FormData) {
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
+  const imageUrl = formData.get("imageUrl") as string;
 
   if (!content) return { error: "Content is required" };
 
   const entries = await getAboutSections();
   const order = entries.length > 0 ? Math.max(...entries.map(e => e.order)) + 1 : 1;
-  
+
   const newEntry: AboutSection = {
     id: crypto.randomUUID(),
     title: title || "",
     content,
     order,
+    imageUrl: imageUrl || undefined,
   };
 
   entries.push(newEntry);
   await saveAboutSections(entries);
-  
+
   revalidatePath("/about");
   revalidatePath("/admin/about");
   return { success: true };
@@ -79,7 +82,7 @@ export async function deleteAboutSection(id: string) {
   let entries = await getAboutSections();
   entries = entries.filter((e) => e.id !== id);
   await saveAboutSections(entries);
-  
+
   revalidatePath("/about");
   revalidatePath("/admin/about");
   return { success: true };
@@ -89,20 +92,22 @@ export async function updateAboutSection(id: string, formData: FormData) {
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
   const orderStr = formData.get("order") as string;
+  const imageUrl = formData.get("imageUrl") as string;
 
   let entries = await getAboutSections();
   const index = entries.findIndex((e) => e.id === id);
-  
+
   if (index !== -1) {
-    entries[index] = { 
-      ...entries[index], 
-      title: title || "", 
+    entries[index] = {
+      ...entries[index],
+      title: title || "",
       content,
-      order: orderStr ? parseInt(orderStr, 10) : entries[index].order
+      order: orderStr ? parseInt(orderStr, 10) : entries[index].order,
+      imageUrl: imageUrl || undefined,
     };
     await saveAboutSections(entries);
   }
-  
+
   revalidatePath("/about");
   revalidatePath("/admin/about");
   return { success: true };
