@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Kantha",
     "description": [
-      "Kantha Rice & Millet brings you nature's finest grains, sourced directly from trusted farmers and processed with care to preserve authentic taste and nutrition. Our range of traditional rice and millet varieties is grown without harmful chemicals, ensuring every grain is pure, healthy, and wholesome for your family. Rooted in tradition yet committed to quality, we bridge the gap between farm and kitchen, delivering freshness you can trust. Choose Kantha Rice & Millet for a healthier lifestyle rooted in nature's goodness — because good health begins with good grain."
+      "This project was built using HTML, CSS, JavaScript, Bootstrap, and PHP to create a responsive and user-friendly web application. MySQL was used for database management, while Git and GitHub handled version control. The application delivers reliable performance, secure data handling, and a seamless user experience."
     ],
     "imageUrl": "/video/kantha_slideshow.mp4",
     "gradientFrom": "#061f46",
