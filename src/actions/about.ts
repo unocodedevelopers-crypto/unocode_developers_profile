@@ -12,12 +12,7 @@ export type AboutSection = {
   order: number;
 };
 
-const getFilePath = () => {
-  if (process.env.VERCEL) {
-    return path.join("/tmp", "about.json");
-  }
-  return path.join(process.cwd(), "data", "about.json");
-};
+const getFilePath = () => path.join(process.cwd(), "data", "about.json");
 
 export const getAboutSections = async (): Promise<AboutSection[]> => {
   if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
