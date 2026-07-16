@@ -19,30 +19,40 @@ export default function Footer() {
           <div className="flex gap-5 sm:gap-7">
             <a className="group relative rounded-sm px-2 py-1" href="/legal-notice">Legal notice 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-0.5 group-hover:-left-1.5 motion-reduce:-left-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span> 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-0.5 group-hover:-right-1.5 motion-reduce:-right-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span>
             </a> 
             <a className="group relative rounded-sm px-2 py-1" href="/privacy-policy">Privacy policy 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-0.5 group-hover:-left-1.5 motion-reduce:-left-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span> 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 -rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity right-0.5 group-hover:-right-1.5 motion-reduce:-right-1.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="#111827" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span>
             </a>
           </div>
         </div>
+        
+        {/* Available for work badge */}
+        <div className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 flex flex-col items-end text-xs text-gray-300 z-10">
+          <div className="flex items-center gap-2">
+             <div className="w-2 h-2 rounded-full bg-green-500"></div>
+             <span>Available for work</span>
+          </div>
+          <span className="font-medium text-white mt-1">Freelance, Full-time</span>
+        </div>
+
         <div className="absolute left-0 top-0 -z-20 h-full w-full backdrop-blur-[50px]"></div>
         <div className="absolute -left-1/4 top-[75%] -z-30 h-full w-[150%] rounded-full bg-gradient-to-tr from-[#2D2D2D] to-[#BDBDBD] opacity-15"></div>
       </div>
