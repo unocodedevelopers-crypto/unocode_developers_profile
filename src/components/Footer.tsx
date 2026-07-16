@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
         
         {/* Available for work badge */}
-        <div className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 flex flex-col items-end text-xs text-gray-300 z-10">
+        <div className="relative mt-2 sm:mt-0 sm:absolute sm:right-6 sm:bottom-6 flex flex-col items-center sm:items-end text-xs text-gray-300 z-10">
           <div className="flex items-center gap-2">
              <div className="w-2 h-2 rounded-full bg-green-500"></div>
              <span>Available for work</span>

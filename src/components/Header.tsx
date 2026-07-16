@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <>
       <a
-        className="group fixed top-2 left-4 z-50 flex h-14 items-center gap-2 rounded-sm px-5 !opacity-100 lg:gap-3 text-white"
+        className="group fixed  left-4 z-50 flex h-14 items-center gap-2 rounded-sm px-5 !opacity-100 lg:gap-3 text-white"
         href="/"
       >
         <svg className="w-8 h-8 text-white" viewBox="-2 -6 38 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -84,9 +84,9 @@ export default function Header() {
 
 
               </svg></span></a><a
-                  className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/about"><span
-                    className="relative">About <div
-                      className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
+                className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/about"><span
+                  className="relative">About <div
+                    className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
                 </div></span> <span
                   className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                     xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
@@ -104,9 +104,9 @@ export default function Header() {
 
 
                 </svg></span></a><a
-                className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/projects"><span
-                  className="relative">Projects <div
-                    className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
+                  className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/projects"><span
+                    className="relative">Projects <div
+                      className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
                 </div></span> <span
                   className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                     xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
