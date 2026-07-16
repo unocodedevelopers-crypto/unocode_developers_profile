@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 import { getAboutSections } from '@/actions/about';
+import AboutCarousel from '@/components/AboutCarousel';
 
 /* eslint-disable */
 
@@ -31,14 +32,21 @@ export default async function AboutPage() {
 
     {/* Dynamic Sections */}
     {sections.map((section, idx) => (
-      <div key={section.id} className={`flex flex-col gap-6 w-full max-w-4xl self-start ${idx > 0 || section.title ? 'mt-10' : ''}`}>
+      <div key={section.id} className={`flex flex-col gap-6 w-full ${section.id === 'why-choose-us' ? 'max-w-7xl' : 'max-w-4xl'} self-start ${idx > 0 || section.title ? 'mt-10' : ''}`}>
         {section.title && (
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2">{section.title}</h2>
+          <h2 className={`text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2 ${section.id === 'why-choose-us' ? 'text-center w-full' : ''}`}>
+            {section.title}
+          </h2>
         )}
-        <div 
-          className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed" 
-          dangerouslySetInnerHTML={{ __html: section.content }}
-        />
+        
+        {section.id === 'why-choose-us' ? (
+          <AboutCarousel />
+        ) : (
+          <div 
+            className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed" 
+            dangerouslySetInnerHTML={{ __html: section.content }}
+          />
+        )}
       </div>
     ))}
 
