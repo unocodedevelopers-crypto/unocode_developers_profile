@@ -1,0 +1,38 @@
+[
+  {
+    "id": "description",
+    "title": "Description",
+    "content": "At Unocode Developers, we specialize in designing and developing modern, high-performance websites that combine elegant design with powerful functionality. Every project is crafted with attention to detail, ensuring speed, responsiveness, security, and an exceptional user experience across all devices.\r\n\r\nWhether you're a startup, small business, or growing brand, we transform ideas into scalable digital solutions that help your business stand out online.",
+    "order": 1
+  },
+  {
+    "id": "what-we-do",
+    "title": "What We Do",
+    "content": "Custom Website Development\r\nResponsive Web Design\r\nE-Commerce Solutions\r\nPortfolio & Business Websites\r\nUI/UX Design\r\nLanding Pages\r\nWebsite Maintenance\r\nPerformance Optimization\r\nSEO-Friendly Development",
+    "order": 2
+  },
+  {
+    "id": "our-mission",
+    "title": "Our Mission",
+    "content": "Our mission is to deliver clean, innovative, and user-focused digital solutions that help businesses establish a strong online presence while providing exceptional performance and long-term value.",
+    "order": 3
+  },
+  {
+    "id": "why-choose-us",
+    "title": "Why Choose Us",
+    "content": "\r\n\r\n✔ Modern & Premium Design\r\n\r\n✔ Fast Loading Websites\r\n\r\n✔ Mobile Responsive\r\n\r\n✔ SEO Optimized\r\n\r\n✔ Secure Development\r\n\r\n✔ Clean & Maintainable Code\r\n\r\n✔ Client-Centered Approach\r\n\r\n✔ Ongoing Support",
+    "order": 4
+  },
+  {
+    "id": "process",
+    "title": "Process",
+    "content": "01. Requirement Analysis\r\n\r\nWe understand your business goals and project requirements.\r\n\r\n02. UI/UX Design\r\n\r\nCreating intuitive and visually engaging user experiences.\r\n\r\n03. Development\r\n\r\nBuilding fast, scalable, and secure web applications.\r\n\r\n04. Testing\r\n\r\nEnsuring quality, responsiveness, and cross-browser compatibility.\r\n\r\n05. Deployment\r\n\r\nLaunching your website with optimal performance.\r\n\r\n06. Support\r\n\r\nContinuous maintenance and future improvements.",
+    "order": 5
+  },
+  {
+    "id": "vision",
+    "title": "Vision",
+    "content": "To become a trusted technology partner by delivering innovative web solutions that empower businesses to grow in the digital world.",
+    "order": 6
+  }
+]

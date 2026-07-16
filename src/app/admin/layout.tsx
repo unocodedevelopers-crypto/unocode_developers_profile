@@ -44,7 +44,13 @@ export default function AdminLayout({
             href="/admin/bio"
             className="block px-4 py-2 rounded-lg hover:bg-base-200 transition-colors"
           >
-            About/Bio
+            Home Intro
+          </Link>
+          <Link
+            href="/admin/about"
+            className="block px-4 py-2 rounded-lg hover:bg-base-200 transition-colors"
+          >
+            About Page
           </Link>
           <Link
             href="/"

@@ -1,10 +1,13 @@
-'use client';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+import { getAboutSections } from '@/actions/about';
+
 /* eslint-disable */
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const sections = await getAboutSections();
   return (
     <>
 
@@ -26,33 +29,18 @@ export default function AboutPage() {
       </div>
     </div>
 
-    {/* Intro Text */}
-    <div className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed w-full max-w-4xl self-start">
-      <p>I'm Leon Obermann, web designer and developer from Cologne, Germany. I design and develop high-end websites for visual brands that value individuality, aesthetics, and quality.</p>
-      <p>With more than six years of experience in development and design, I combine technical expertise with a strong design sensibility to create digital experiences that truly convince.</p>
-      <p>Websites are my passion. I care deeply about the details and consistently refine every project to bring out the final percent of quality.</p>
-    </div>
-
-    {/* What Drives Me */}
-    <div className="flex flex-col gap-6 w-full max-w-4xl self-start mt-10">
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2">What Drives Me</h2>
-      <div className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed">
-        <p>I have a passion for beauty, both in architecture, product design and typography, as well as in a perfectly captured sunset. I always wanted to invent things as a child. Today, I do exactly that.</p>
-        <p>What really drives me is the last step. 80% of a project comes together quickly, but I love exactly the moment where others stop and I keep going.</p>
-        <p>That extra effort that turns something good into something truly special. I don't stop until it feels right.</p>
-        <p>In the end, I want to create things that make others say "Wow."</p>
+    {/* Dynamic Sections */}
+    {sections.map((section, idx) => (
+      <div key={section.id} className={`flex flex-col gap-6 w-full max-w-4xl self-start ${idx > 0 || section.title ? 'mt-10' : ''}`}>
+        {section.title && (
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2">{section.title}</h2>
+        )}
+        <div 
+          className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed" 
+          dangerouslySetInnerHTML={{ __html: section.content }}
+        />
       </div>
-    </div>
-
-    {/* My Philosophy */}
-    <div className="flex flex-col gap-6 w-full max-w-4xl self-start mt-10">
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2">My Philosophy</h2>
-      <div className="flex flex-col gap-6 text-gray-300 text-lg md:text-xl leading-relaxed">
-        <p>I intentionally work without website builders. Every website I design and develop is unique, tailored to the individual brand and its message.</p>
-        <p>To me, a website is more than just a digital presence. It is part of the overall brand experience. That is why, from the very beginning, I make sure that your website is technically flawless, fast, and can be enjoyed optimally on any device.</p>
-        <p>The result is a digital experience that sets brands apart and makes their individuality visible.</p>
-      </div>
-    </div>
+    ))}
 
     {/* CTA Section */}
     <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 w-full mt-20 mb-20 md:mb-32">
