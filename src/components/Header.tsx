@@ -56,8 +56,8 @@ export default function Header() {
       {/* Mobile Dropdown Menu */}
       <div className={`fixed right-4 top-16 z-[55] flex w-48 flex-col gap-4 rounded-2xl border border-black/10 bg-[#0d0710]/95 p-6 shadow-2xl backdrop-blur-md lg:hidden transition-all duration-300 origin-top-right ${isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}>
         <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
-        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
         <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
+        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
         <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
       </div>
       <div className="fixed left-0 top-0 z-30 flex h-14 w-full items-center justify-end pr-5 backdrop-blur-lg">
@@ -84,9 +84,9 @@ export default function Header() {
 
 
               </svg></span></a><a
-                className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/projects"><span
-                  className="relative">Projects <div
-                    className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
+                  className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/about"><span
+                    className="relative">About <div
+                      className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
                 </div></span> <span
                   className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                     xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
@@ -104,9 +104,9 @@ export default function Header() {
 
 
                 </svg></span></a><a
-                  className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/about"><span
-                    className="relative">About <div
-                      className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
+                className="group relative rounded-sm px-4 py-2 text-sm tracking-wide" href="/projects"><span
+                  className="relative">Projects <div
+                    className="absolute -bottom-px left-1/2 h-px -translate-x-1/2 bg-white/40 transition-all duration-300 motion-reduce:transition-none w-0">
                 </div></span> <span
                   className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-2.5 group-hover:left-0.5 motion-reduce:left-0.5"><svg
                     xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24"
