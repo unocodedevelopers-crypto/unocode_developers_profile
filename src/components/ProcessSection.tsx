@@ -44,13 +44,13 @@ const processSteps = [
 
 export default function ProcessSection() {
     return (
-        <section className="relative w-full bg-transparent py-20 px-5 lg:px-10">
+        <section className="relative w-full bg-transparent pt-20 pb-0 px-5 lg:px-10">
             <div className="max-w-[1300px] mx-auto w-full mb-10 md:mb-20 flex flex-col items-center text-center">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-inria-sans tracking-wide">Process</h2>
                 <p className="text-gray-400 max-w-2xl text-lg lg:text-xl font-inria-sans">How we bring your ideas to life from concept to launch.</p>
             </div>
 
-            <div className="relative w-full max-w-[1300px] mx-auto flex flex-col gap-[30vh] md:gap-[50vh] pb-[20vh]">
+            <div className="relative w-full max-w-[1300px] mx-auto flex flex-col gap-[30vh] md:gap-[50vh] pb-[5vh]">
                 {processSteps.map((step, index) => (
                     <Card key={step.num} step={step} index={index} total={processSteps.length} />
                 ))}

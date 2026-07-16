@@ -67,24 +67,8 @@ export default async function AboutPage() {
 
   return (
     <>
-      <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-x-clip"><Header />
-        <div className="flex flex-col items-center pt-32 px-5 lg:px-10 gap-16 md:gap-32 w-full max-w-[1200px] mx-auto min-h-screen">
-
-          {/* Hero Section */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-20 w-full mt-10 md:mt-20">
-            <div className="w-full max-w-[300px] md:max-w-[400px] flex-shrink-0">
-              <img src="/Portrait Leon Obermann 1.webp" alt="Leon Obermann" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
-            </div>
-            <div className="flex flex-col gap-6 w-full mt-4 md:mt-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide font-inria-sans leading-tight">
-                High-end design meets<br/>technical precision.
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-100">
-                For brands that expect quality<br/>down to the finest detail.
-              </p>
-            </div>
-          </div>
-
+      <div className="relative flex min-h-screen w-full flex-col gap-20 overflow-x-clip"><Header />
+        <div className="flex flex-col items-center pt-32 px-5 lg:px-10 gap-16 md:gap-32 w-full max-w-[1200px] mx-auto">
           {/* Page Heading */}
           <div className="w-full mt-10 md:mt-16 mb-8 text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wide font-inria-sans text-white">
