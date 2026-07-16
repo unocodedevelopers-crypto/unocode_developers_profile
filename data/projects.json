@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Kantha",
     "description": [
-      "Kantha Rice & Millet brings you nature's finest grains, sourced directly from trusted farmers and processed with care to preserve authentic taste and nutrition. Our range of traditional rice and millet varieties is grown without harmful chemicals, ensuring every grain is pure, healthy, and wholesome for your family. Rooted in tradition yet committed to quality, we bridge the gap between farm and kitchen, delivering freshness you can trust. Choose Kantha Rice & Millet for a healthier lifestyle rooted in nature's goodness — because good health begins with good grain."
+      "This project was built using HTML, CSS, JavaScript, Bootstrap, and PHP to create a responsive and user-friendly web application. MySQL was used for database management, while Git and GitHub handled version control. The application delivers reliable performance, secure data handling, and a seamless user experience."
     ],
     "imageUrl": "/video/kantha_slideshow.mp4",
     "gradientFrom": "#061f46",
@@ -11,13 +11,12 @@
   },
   {
     "id": "2",
-    "title": "Kreativ-Bauten",
+    "title": "Astrology Consultation Service",
     "description": [
-      "Jeff reached out after struggling to achieve what he envisioned with website builders.",
-      "For his craft business Kreativ-Bauten, we built a website that clearly presents his three specialties: exhibition construction, room acoustics and general craftsmanship. Rounded off by a custom animation that turns scrolling itself into part of the experience."
+      "The project is a multi-page astrology website template (built with 'HTML', 'CSS', 'Bootstrap', and 'jQuery') offering pages for services, astrologer profiles, appointment booking, horoscopes, a blog, and a shop for astrology products. It's a ready-to-use front-end design for an astrology consultation business, with all assets organized for easy customization."
     ],
-    "imageUrl": "projects/kreativ-bauten/thumbnail.webp",
-    "gradientFrom": "#4a4a4a",
-    "gradientTo": "#757575"
+    "imageUrl": "/video3.mp4",
+    "gradientFrom": "#061f46",
+    "gradientTo": "#00244d"
   }
 ]
