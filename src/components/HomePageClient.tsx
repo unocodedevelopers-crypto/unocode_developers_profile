@@ -41,22 +41,22 @@ export type BioEntry = {
 function StackedCard({ concept, index, total, scrollYProgress }: { concept: Concept, index: number, total: number, scrollYProgress: any }) {
     const start = Math.max(0, (index - 1) / (total - 1 || 1));
     const end = index / (total - 1 || 1);
-    
+
     // Card 0 stays at 0%. Subsequent cards slide in from right.
     const x = useTransform(scrollYProgress, [start, end], ["100%", "0%"]);
-    
+
     // Slight push back for the card when the NEXT card is sliding over it
     const pushBackStart = index / (total - 1 || 1);
     const pushBackEnd = Math.min(1, (index + 1) / (total - 1 || 1));
     const scale = useTransform(scrollYProgress, [pushBackStart, pushBackEnd], [1, 0.95]);
 
     return (
-        <motion.div 
-            style={{ 
-                x: index === 0 ? "0%" : x, 
-                zIndex: index, 
-                scale: index === total - 1 ? 1 : scale 
-            }} 
+        <motion.div
+            style={{
+                x: index === 0 ? "0%" : x,
+                zIndex: index,
+                scale: index === total - 1 ? 1 : scale
+            }}
             className="absolute top-0 left-0 w-full h-full bg-[#0a0a0a] flex items-center justify-center p-8 lg:p-20 shadow-[-30px_0_50px_rgba(0,0,0,0.7)] border-l border-white/5 text-white"
         >
             <div className="flex w-full h-full max-w-7xl mx-auto items-center flex-col lg:flex-row gap-10 lg:gap-20">
@@ -421,7 +421,7 @@ export default function HomePageClient({
                                             </button>
                                             <div className="relative flex flex-col gap-2 lg:w-1/3">
                                                 <div id={`project-gradient-${project.id}`}
-                                                    className={`absolute -left-1/4 -top-[12.5%] -z-50 h-[125%] w-[150%] rounded-full opacity-15 lg:w-[200%] ${isReversed ? 'lg:-left-1/3' : 'lg:-left-2/3'}`}
+                                                    className={`absolute -left-1/4 -top-[12.5%] -z-50 h-[125%] w-[150%] rounded-full opacity-80 lg:w-[200%] ${isReversed ? 'lg:-left-1/3' : 'lg:-left-2/3'}`}
                                                     style={{ background: `linear-gradient(to top right, ${project.gradientFrom}, ${project.gradientTo})` }}
                                                 >
                                                 </div>
@@ -446,9 +446,9 @@ export default function HomePageClient({
                                     id="heading-title-undefined">We Offers</h2>
 
                             </div>
-                                <div className="flex w-full flex-col items-center">
-                                    <ConceptsStackedScroll concepts={concepts} />
-                                </div>
+                            <div className="flex w-full flex-col items-center">
+                                <ConceptsStackedScroll concepts={concepts} />
+                            </div>
 
                         </div>
                         <div className="fixed left-0 top-0 z-40 h-screen w-full pointer-events-none">
