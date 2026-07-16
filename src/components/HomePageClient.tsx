@@ -244,7 +244,7 @@ export default function HomePageClient({
                     </div>
                 </div>
             </dialog>
-            <div className="relative flex min-h-screen w-full flex-col gap-48 overflow-clip z-0">
+            <div className="relative flex min-h-screen w-full flex-col gap-48 z-0 overflow-x-clip">
                 <video
                     autoPlay loop muted playsInline
                     className="absolute top-0 left-0 w-full h-screen object-cover z-0"
@@ -686,8 +686,8 @@ export default function HomePageClient({
                     </div>
                 </div>
                 <Footer />
-                <div
-                    className="absolute -bottom-44 -left-1/4 -z-50 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#2B2EE9] to-[#04344b] opacity-15">
+                <div className="absolute inset-0 -z-50 overflow-hidden pointer-events-none">
+                    <div className="absolute -bottom-44 -left-1/4 h-[675px] w-[150%] -rotate-12 rounded-3xl bg-gradient-to-tr from-[#2B2EE9] to-[#04344b] opacity-15"></div>
                 </div>
             </div>
         </>
