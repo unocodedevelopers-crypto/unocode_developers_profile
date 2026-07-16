@@ -38,6 +38,61 @@ export type BioEntry = {
     imageUrl?: string;
 };
 
+function StackedCard({ concept, index, total, scrollYProgress }: { concept: Concept, index: number, total: number, scrollYProgress: any }) {
+    const start = Math.max(0, (index - 1) / (total - 1 || 1));
+    const end = index / (total - 1 || 1);
+    
+    // Card 0 stays at 0%. Subsequent cards slide in from right.
+    const x = useTransform(scrollYProgress, [start, end], ["100%", "0%"]);
+    
+    // Slight push back for the card when the NEXT card is sliding over it
+    const pushBackStart = index / (total - 1 || 1);
+    const pushBackEnd = Math.min(1, (index + 1) / (total - 1 || 1));
+    const scale = useTransform(scrollYProgress, [pushBackStart, pushBackEnd], [1, 0.95]);
+
+    return (
+        <motion.div 
+            style={{ 
+                x: index === 0 ? "0%" : x, 
+                zIndex: index, 
+                scale: index === total - 1 ? 1 : scale 
+            }} 
+            className="absolute top-0 left-0 w-full h-full bg-[#0a0a0a] flex items-center justify-center p-8 lg:p-20 shadow-[-30px_0_50px_rgba(0,0,0,0.7)] border-l border-white/5 text-white"
+        >
+            <div className="flex w-full h-full max-w-7xl mx-auto items-center flex-col lg:flex-row gap-10 lg:gap-20">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center h-full gap-4 lg:gap-8">
+                    <h3 className="text-7xl lg:text-9xl font-bold font-serif text-gray-700 opacity-50">0{index + 1}</h3>
+                    <h4 className="text-4xl lg:text-6xl font-bold uppercase tracking-wider">{concept.title}</h4>
+                    <p className="text-lg lg:text-xl text-gray-400 max-w-md leading-relaxed">
+                        Elevate your brand with digital experiences built to leave a lasting impression. Check out this showcase for {concept.title}.
+                    </p>
+                </div>
+                <div className="w-full lg:w-1/2 flex justify-center items-center">
+                    <img className="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[70vh] border border-white/10" src={concept.imageUrl} alt={concept.title} loading="lazy" />
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+function ConceptsStackedScroll({ concepts }: { concepts: Concept[] }) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    return (
+        <div ref={containerRef} className="relative w-full" style={{ height: `${Math.max(1, concepts.length) * 100}vh` }}>
+            <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
+                {concepts.map((concept, index) => (
+                    <StackedCard key={concept.id} concept={concept} index={index} total={concepts.length} scrollYProgress={scrollYProgress} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
 export default function HomePageClient({
     testimonials,
     projects,
@@ -391,31 +446,10 @@ export default function HomePageClient({
                                     id="heading-title-undefined">We Offers</h2>
 
                             </div>
-                            <div className="flex w-full flex-col items-center gap-10">
-                                <div className="mouse-follow mt-6 grid w-full cursor-none grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3" data-type="popup">
-                                    {concepts.map((concept, index) => (
-                                        <motion.button
-                                            key={concept.id}
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            viewport={{ once: true, margin: "-50px" }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            whileHover={{ scale: 0.95 }}
-                                            className="group relative aspect-[1.40625] w-full cursor-none shadow-lg" id={`thumbnail-button-${concept.id}`}>
-                                            <img
-                                                className="absolute -z-10 rounded opacity-0 blur-2xl brightness-150 transition-opacity duration-700 group-hover:opacity-50"
-                                                src={concept.imageUrl}
-                                                alt={`Background blur for concept design for ${concept.title}`}
-                                                width="1440" height="1024" loading="lazy" />
-                                            <img
-                                                className="thumbnail-image rounded" src={concept.imageUrl}
-                                                alt={`Concept design for ${concept.title}`} width="1440" height="1024"
-                                                loading="lazy" data-flip-id="thumbnail-image"
-                                                id={`thumbnail-image-${concept.id}`} />
-                                        </motion.button>
-                                    ))}
+                                <div className="flex w-full flex-col items-center">
+                                    <ConceptsStackedScroll concepts={concepts} />
                                 </div>
-                            </div>
+
                         </div>
                         <div className="fixed left-0 top-0 z-40 h-screen w-full pointer-events-none">
 

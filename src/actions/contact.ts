@@ -1,9 +1,18 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 import { kv } from "@vercel/kv";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 type Message = {
   id: string;
@@ -74,6 +83,25 @@ export async function submitContactForm(formData: FormData) {
 
     if (!name || !email || !message) {
       return { error: "Name, email, and message are required." };
+    }
+
+    try {
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER, // Send to yourself
+        replyTo: email, // If you hit reply, it goes to the client's email
+        subject: `New Contact Form Submission from ${name}`,
+        html: `
+          <h2>New Contact Request</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("Nodemailer Email Error:", emailError);
     }
 
     const newMessage: Message = {
