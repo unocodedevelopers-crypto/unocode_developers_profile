@@ -487,7 +487,7 @@ export default function HomePageClient({
                                     transition={{ duration: 0.8 }}
                                     className="relative flex justify-center mb-20">
                                     <div className="flex max-w-lg flex-col items-center gap-10 lg:max-w-[830px] lg:flex-row lg:gap-12">
-                                        <div id="about-image" className="aspect-[0.75] w-[65%] max-w-72 sm:w-full"><img
+                                        <div id="about-image" className=" w-[65%] max-w-72 sm:w-full"><img
                                             className="rounded-xl shadow-lg transition-shadow duration-1000 hover:shadow-none"
                                             src={bio.imageUrl || "Portrait%20Leon%20Obermann%201.webp"} alt="Portrait"
                                             loading="lazy" width="444" height="592" /></div>
