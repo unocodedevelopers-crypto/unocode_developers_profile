@@ -6,7 +6,7 @@ import { Project } from '@/components/HomePageClient';
 
 export default function ProjectsPageClient({ projects }: { projects: Project[] }) {
     return (
-        <div className="relative flex min-h-screen w-full flex-col overflow-clip z-0" style={{ backgroundColor: '#0f0c29', backgroundImage: 'linear-gradient(to right, #24243e, #302b63, #0f0c29)', WebkitBackgroundImage: '-webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29)' }}>
+        <div className="relative flex min-h-screen w-full flex-col overflow-clip z-0" style={{ backgroundColor: '#0f0c29', backgroundImage: 'linear-gradient(to right, #24243e, #302b63, #0f0c29)', WebkitBackgroundImage: '-webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29)' } as React.CSSProperties}>
             <Header />
             <div className="w-full flex-1 px-5 pt-32 md:pt-36 lg:px-10 lg:pt-40 xl:pt-44 pb-32">
                 <div className="flex flex-col items-center gap-10 lg:gap-16">
