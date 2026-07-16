@@ -574,7 +574,7 @@ export default function HomePageClient({
 
                                                 </svg></span></a> <a id=""
                                                     className="rounded-xl justify-center duration-500 h-fit w-fit flex gap-2.5 tracking-wide items-center transition-colors hover:decoration-white/75 decoration-white/40 underline-offset-4 group relative px-4 no-underline -ml-4 py-1"
-                                                    href="https://www.linkedin.com/in/leon-obermann-171465208" target="_blank"
+                                                    href="https://www.linkedin.com/in/unocode-developers-880107421/" target="_blank"
                                                     rel="noopener noreferrer"><span className="2xl:hidden"><svg viewBox="0 0 72 72"
                                                         width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
                                                         <g>

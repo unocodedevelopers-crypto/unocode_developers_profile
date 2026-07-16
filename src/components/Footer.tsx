@@ -17,7 +17,7 @@ export default function Footer() {
           </svg>
           <p className="px-2 py-1 text-center">Web design from Madurai, TN</p>
           <div className="flex gap-5 sm:gap-7">
-            <a className="group relative rounded-sm px-2 py-1" href="/legal-notice">Legal notice 
+            {/* <a className="group relative rounded-sm px-2 py-1" href="/legal-notice">Legal notice 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-0.5 group-hover:-left-1.5 motion-reduce:-left-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
@@ -28,8 +28,8 @@ export default function Footer() {
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span>
-            </a> 
-            <a className="group relative rounded-sm px-2 py-1" href="/privacy-policy">Privacy policy 
+            </a>  */}
+            {/* <a className="group relative rounded-sm px-2 py-1" href="/privacy-policy">Privacy policy 
               <span className="pointer-events-none absolute top-1/2 -translate-y-1/2 rotate-90 opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-opacity left-0.5 group-hover:-left-1.5 motion-reduce:-left-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide-icon lucide lucide-triangle">
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
@@ -40,7 +40,7 @@ export default function Footer() {
                   <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 </svg>
               </span>
-            </a>
+            </a> */}
           </div>
         </div>
         
