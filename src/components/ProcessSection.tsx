@@ -45,12 +45,18 @@ const processSteps = [
 export default function ProcessSection() {
     return (
         <section className="relative w-full bg-transparent pt-20 pb-0 px-5 lg:px-10">
-            <div className="max-w-[1300px] mx-auto w-full mb-10 md:mb-20 flex flex-col items-center text-center">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-inria-sans tracking-wide">Process</h2>
+            <div className="max-w-5xl mx-auto w-full mb-10 md:mb-20 flex flex-col items-center text-center">
+                <div className="relative inline-block w-fit px-4 py-3 mb-6 text-center">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-inria-sans tracking-wide relative z-10">Process</h2>
+                    <svg className="absolute -bottom-4 left-0 w-full h-6 text-yellow-500 z-0" viewBox="0 0 200 20" preserveAspectRatio="none">
+                        <path d="M 0 15 Q 100 0 200 15" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                        <path d="M 20 18 Q 110 5 180 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                </div>
                 <p className="text-gray-400 max-w-2xl text-lg lg:text-xl font-inria-sans">How we bring your ideas to life from concept to launch.</p>
             </div>
 
-            <div className="relative w-full max-w-[1300px] mx-auto flex flex-col gap-[30vh] md:gap-[50vh] pb-[5vh]">
+            <div className="relative w-full max-w-5xl mx-auto flex flex-col gap-[30vh] md:gap-[50vh] pb-[5vh]">
                 {processSteps.map((step, index) => (
                     <Card key={step.num} step={step} index={index} total={processSteps.length} />
                 ))}

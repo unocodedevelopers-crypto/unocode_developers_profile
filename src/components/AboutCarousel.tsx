@@ -49,9 +49,9 @@ export default function AboutCarousel() {
               delay: 3000,
               disableOnInteraction: false,
             }}
-            pagination={{ 
+            pagination={{
               el: '.custom-pagination',
-              clickable: true 
+              clickable: true
             }}
             navigation={{
               nextEl: '.custom-next',
@@ -79,7 +79,7 @@ export default function AboutCarousel() {
             ))}
           </Swiper>
         </div>
-        
+
         {/* Custom Pagination Element (strictly outside images) */}
         <div className="custom-pagination flex justify-center mt-8"></div>
       </div>
