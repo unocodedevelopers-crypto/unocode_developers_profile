@@ -36,29 +36,31 @@ export default function Header() {
         </span>
       </a>
 
-      <nav className="fixed right-[5px] top-0.5 z-[60] flex lg:hidden">
+      <nav className="fixed right-4 top-2 z-[60] flex lg:hidden">
         <button
-          className="group touch-manipulation p-4"
+          className="group touch-manipulation p-2 focus:outline-none"
           aria-label="Menu"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className="flex h-[21px] w-8 flex-col justify-between gap-2 [&_*]:w-full [&_span]:rounded-full [&_span]:bg-white [&_span]:transition-all [&_span]:duration-200 group-hover:[&_span]:bg-gray-200 motion-reduce:[&_span]:transition-none [&_*]:h-px">
-            <span className={isMenuOpen ? "rotate-45 translate-y-[9px]" : ""}></span>
-            <div className="relative">
-              <span className={`absolute left-0 top-0 ${isMenuOpen ? "opacity-0" : ""}`}></span>
-            </div>
-            <span className={isMenuOpen ? "-rotate-45 -translate-y-[9px]" : ""}></span>
-          </div>
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-8 w-8 text-white">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-8 w-8 text-white">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </nav>
 
       {/* Mobile Dropdown Menu */}
-      <div className={`fixed right-4 top-16 z-[55] flex w-48 flex-col gap-4 rounded-2xl border border-black/10 bg-[#0d0710]/95 p-6 shadow-2xl backdrop-blur-md lg:hidden transition-all duration-300 origin-top-right ${isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}>
-        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
-        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
-        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-        <a className="text-lg text-gray-900 tracking-wide hover:text-gray-700 transition-colors" href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+      <div className={`fixed right-4 top-16 z-[55] flex w-48 flex-col gap-4 rounded-2xl border border-white/10 bg-[#0d0710]/95 p-6 shadow-2xl backdrop-blur-md lg:hidden transition-all duration-300 origin-top-right ${isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}>
+        <a className="text-lg text-white tracking-wide hover:text-gray-300 transition-colors" href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
+        <a className="text-lg text-white tracking-wide hover:text-gray-300 transition-colors" href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
+        <a className="text-lg text-white tracking-wide hover:text-gray-300 transition-colors" href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
+        <a className="text-lg text-white tracking-wide hover:text-gray-300 transition-colors" href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
       </div>
       <div className="fixed left-0 top-0 z-30 flex h-14 w-full items-center justify-end pr-5 backdrop-blur-lg">
         <div
