@@ -10,14 +10,38 @@ import ProcessSection from '@/components/ProcessSection';
 export default async function AboutPage() {
   const sections = await getAboutSections();
 
+  const renderTitle = (title: string, className: string) => (
+    <div className="relative inline-block w-fit px-4 py-3 mb-6 text-center">
+      <h2 className={`${className} relative z-10`}>
+        {title}
+      </h2>
+      <svg className="absolute -bottom-4 left-0 w-full h-6 text-yellow-500 z-0" viewBox="0 0 200 20" preserveAspectRatio="none">
+        <path d="M 0 15 Q 100 0 200 15" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <path d="M 20 18 Q 110 5 180 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+
   const renderSection = (section: any, idx: number) => {
+    if (section.id === 'our-mission') {
+      return (
+        <div key={section.id} className={`flex flex-col items-center gap-6 w-full max-w-4xl mx-auto ${idx > 0 || section.title ? 'mt-16' : 'mt-10'}`}>
+          {section.title && renderTitle(section.title, "text-4xl md:text-6xl lg:text-7xl font-semibold tracking-wide font-inria-sans text-white")}
+          <div
+            className="flex flex-col gap-6 text-[#a0abc0] text-lg md:text-2xl leading-relaxed max-w-2xl text-center"
+            dangerouslySetInnerHTML={{ __html: section.content }}
+          />
+        </div>
+      );
+    }
+
     if (section.id === 'why-choose-us') {
       return (
         <div key={section.id} className={`flex flex-col gap-6 w-full max-w-7xl self-start ${idx > 0 || section.title ? 'mt-10' : ''}`}>
           {section.title && (
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-6 text-center w-full text-white">
-              {section.title}
-            </h2>
+            <div className="flex justify-center w-full">
+              {renderTitle(section.title, "text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans text-white")}
+            </div>
           )}
           <AboutCarousel />
         </div>
@@ -39,9 +63,7 @@ export default async function AboutPage() {
           
           {/* Content Side */}
           <div className="w-full lg:w-[45%] p-10 lg:p-16 flex flex-col justify-center">
-            {section.title && (
-              <h2 className="text-3xl md:text-4xl font-bold tracking-wide mb-6 text-white">{section.title}</h2>
-            )}
+            {section.title && renderTitle(section.title, "text-3xl md:text-4xl font-bold tracking-wide text-white")}
             <div
               className="text-[#a0abc0] text-base md:text-lg leading-relaxed"
               dangerouslySetInnerHTML={{ __html: section.content }}
@@ -53,12 +75,10 @@ export default async function AboutPage() {
 
     // Fallback for sections without an image
     return (
-      <div key={section.id} className={`flex flex-col gap-6 w-full max-w-4xl self-start ${idx > 0 || section.title ? 'mt-16' : 'mt-10'}`}>
-        {section.title && (
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans mb-2 text-white">{section.title}</h2>
-        )}
+      <div key={section.id} className={`flex flex-col items-center gap-6 w-full max-w-4xl mx-auto ${idx > 0 || section.title ? 'mt-16' : 'mt-10'}`}>
+        {section.title && renderTitle(section.title, "text-3xl md:text-4xl font-semibold tracking-wide font-inria-sans text-white")}
         <div
-          className="flex flex-col gap-6 text-[#a0abc0] text-lg md:text-xl leading-relaxed"
+          className="flex flex-col gap-6 text-[#a0abc0] text-lg md:text-xl leading-relaxed text-center"
           dangerouslySetInnerHTML={{ __html: section.content }}
         />
       </div>
