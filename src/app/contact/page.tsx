@@ -1,7 +1,18 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ClientContactForm from '@/components/ClientContactForm';
 import GreenScreenVideo from '@/components/GreenScreenVideo';
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with Unocode Developers in Madurai, TN for your web design, web development, and digital solution inquiries.",
+  openGraph: {
+    title: "Contact Us | Unocode Developers",
+    description: "Get in touch with Unocode Developers in Madurai, TN for your web design, web development, and digital solution inquiries.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
     return (

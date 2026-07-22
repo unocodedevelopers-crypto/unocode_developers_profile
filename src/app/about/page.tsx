@@ -1,9 +1,20 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 import { getAboutSections } from '@/actions/about';
 import AboutCarousel from '@/components/AboutCarousel';
 import ProcessSection from '@/components/ProcessSection';
+
+export const metadata: Metadata = {
+  title: "About Our Services",
+  description: "Learn about Unocode Developers, our process, core mission, vision, and custom web development services based in Madurai, TN.",
+  openGraph: {
+    title: "About Our Services | Unocode Developers",
+    description: "Learn about Unocode Developers, our process, core mission, vision, and custom web development services based in Madurai, TN.",
+    url: "/about",
+  },
+};
 
 /* eslint-disable */
 
