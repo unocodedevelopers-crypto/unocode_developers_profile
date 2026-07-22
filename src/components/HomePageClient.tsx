@@ -275,7 +275,10 @@ export default function HomePageClient({
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 1.8, type: 'spring', stiffness: 100 }}
                             className="font-inria-sans text-4xl font-bold capitalize leading-[44px] tracking-[.15em] xl:text-5xl 2xl:text-6xl">
-                            <h1>Innovate. <br className="sm:hidden" /> Develop. Elevate.</h1>
+                            <h1>
+                              Innovate. <br className="sm:hidden" /> Develop. Elevate.
+                              <span className="sr-only"> - Unocode Developers | Web Design & Web Development Agency in Madurai, TN</span>
+                            </h1>
                         </motion.div>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}

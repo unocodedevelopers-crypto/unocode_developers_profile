@@ -27,26 +27,31 @@ export const metadata: Metadata = {
     "Unocode Developers offers premium web design and custom web development from Madurai, TN. We build high-end, responsive, and high-performing digital solutions tailored for visual brands.",
   keywords: [
     "Unocode Developers",
+    "Unocode Developers Madurai",
     "Web Design Madurai",
     "Web Development Madurai",
+    "Best Web Developer Madurai",
     "Website Developer Tamil Nadu",
     "Custom Web Applications",
     "Freelance Web Developer",
-    "Next.js Developer",
+    "Next.js Developer Madurai",
     "React Developer Madurai",
     "UI UX Web Design",
     "Visual Brand Websites",
+    "Ecommerce Web Development Madurai",
+    "SEO Optimized Web Design",
+    "Full Stack Developer Madurai",
   ],
-  authors: [{ name: "Unocode Developers" }],
+  authors: [{ name: "Unocode Developers", url: "https://unocode-developers-profile.vercel.app" }],
   creator: "Unocode Developers",
   publisher: "Unocode Developers",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Unocode Developers | Custom High-End Web Design & Development",
+    title: "Unocode Developers | Custom Web Design & Web Development in Madurai",
     description:
-      "Web design and web development from Madurai, TN. Custom high-end websites for visual brands. Individually conceived, designed, and programmed.",
+      "Web design and web development agency from Madurai, TN. Custom high-end websites, web applications, and digital solutions for visual brands.",
     url: "/",
     siteName: "Unocode Developers",
     images: [
@@ -54,13 +59,13 @@ export const metadata: Metadata = {
         url: "/og-image.webp",
         width: 600,
         height: 400,
-        alt: "Unocode Developers Logo",
+        alt: "Unocode Developers Logo - Web Design Agency in Madurai",
       },
       {
         url: "/og-image.png",
         width: 600,
         height: 400,
-        alt: "Unocode Developers Logo",
+        alt: "Unocode Developers Logo - Web Design Agency in Madurai",
       },
     ],
     locale: "en_US",
@@ -68,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unocode Developers | Custom High-End Web Design & Development",
+    title: "Unocode Developers | Custom Web Design & Web Development in Madurai",
     description:
       "Web design and web development from Madurai, TN. Custom high-end websites for visual brands.",
     images: ["/og-image.webp"],
@@ -88,6 +93,8 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
+  category: "technology",
 };
 
 const jsonLd = {
@@ -98,14 +105,52 @@ const jsonLd = {
   "logo": "/og-image.png",
   "image": "/og-image.png",
   "description":
-    "Web design and web development agency from Madurai, TN. Custom high-end websites for visual brands.",
+    "Web design and web development agency from Madurai, TN. Custom high-end websites, web applications, and digital solutions for visual brands.",
+  "email": "unocode.developers@gmail.com",
+  "telephone": "+91 80722 24577",
+  "sameAs": [
+    "https://www.linkedin.com/in/unocode-developers-880107421/"
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Madurai",
     "addressRegion": "Tamil Nadu",
     "addressCountry": "IN"
   },
-  "priceRange": "$$"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "9.9252",
+    "longitude": "78.1198"
+  },
+  "areaServed": ["Madurai", "Tamil Nadu", "India", "Worldwide"],
+  "priceRange": "$$",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Web Design & Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Full Stack Web Applications"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SEO & Performance Optimization"
+        }
+      }
+    ]
+  }
 };
 
 export default function RootLayout({
