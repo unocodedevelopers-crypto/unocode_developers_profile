@@ -3,10 +3,20 @@ import { getProjects } from "@/actions/projects";
 import ProjectsPageClient from "@/components/ProjectsPageClient";
 
 export const metadata: Metadata = {
-  title: "Projects & Portfolio",
-  description: "Explore custom web applications, high-end websites, and digital projects created by Unocode Developers.",
+  title: "Web Design Portfolio & Case Studies Madurai | Unocode Developers",
+  description: "Explore custom web applications, e-commerce websites, and high-end digital projects developed by Unocode Developers in Madurai, TN.",
+  keywords: [
+    "Web Design Portfolio Madurai",
+    "Web Development Projects",
+    "Next.js Portfolio",
+    "Ecommerce Websites Madurai",
+    "Unocode Developers Projects"
+  ],
+  alternates: {
+    canonical: "/projects",
+  },
   openGraph: {
-    title: "Projects & Portfolio | Unocode Developers",
+    title: "Web Design Portfolio & Case Studies Madurai | Unocode Developers",
     description: "Explore custom web applications, high-end websites, and digital projects created by Unocode Developers.",
     url: "/projects",
   },

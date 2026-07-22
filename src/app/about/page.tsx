@@ -7,11 +7,22 @@ import AboutCarousel from '@/components/AboutCarousel';
 import ProcessSection from '@/components/ProcessSection';
 
 export const metadata: Metadata = {
-  title: "About Our Services",
-  description: "Learn about Unocode Developers, our process, core mission, vision, and custom web development services based in Madurai, TN.",
+  title: "Web Design & Web Development Services in Madurai | Unocode Developers",
+  description: "Learn about Unocode Developers, our proven web design process, core mission, vision, and custom Next.js web development services based in Madurai, TN.",
+  keywords: [
+    "Web Design Services Madurai",
+    "Web Development Services Madurai",
+    "Custom Web Applications Madurai",
+    "Unocode Developers About",
+    "Next.js Developers Tamil Nadu",
+    "Best Website Developers Madurai"
+  ],
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
-    title: "About Our Services | Unocode Developers",
-    description: "Learn about Unocode Developers, our process, core mission, vision, and custom web development services based in Madurai, TN.",
+    title: "Web Design & Development Services in Madurai | Unocode Developers",
+    description: "Learn about Unocode Developers, our web design process, core mission, vision, and custom web development services based in Madurai, TN.",
     url: "/about",
   },
 };

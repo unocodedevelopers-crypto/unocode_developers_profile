@@ -5,10 +5,20 @@ import ClientContactForm from '@/components/ClientContactForm';
 import GreenScreenVideo from '@/components/GreenScreenVideo';
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with Unocode Developers in Madurai, TN for your web design, web development, and digital solution inquiries.",
+  title: "Hire Web Developer in Madurai | Contact Unocode Developers",
+  description: "Get in touch with Unocode Developers in Madurai, TN for custom web design, web development, Next.js applications, and website inquiries.",
+  keywords: [
+    "Hire Web Developer Madurai",
+    "Contact Web Developer Madurai",
+    "Web Design Agency Madurai Contact",
+    "Unocode Developers Phone Number",
+    "Website Cost Madurai"
+  ],
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
-    title: "Contact Us | Unocode Developers",
+    title: "Hire Web Developer in Madurai | Contact Unocode Developers",
     description: "Get in touch with Unocode Developers in Madurai, TN for your web design, web development, and digital solution inquiries.",
     url: "/contact",
   },
