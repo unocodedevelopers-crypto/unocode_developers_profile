@@ -135,7 +135,7 @@ export default async function AboutPage() {
               </a>
             </div>
             <div className="w-full max-w-[300px] md:max-w-[400px]">
-              <img src="/Portrait Leon Obermann 1.webp" alt="Leon Obermann" className="w-full h-auto rounded-2xl object-cover" />
+              <img src="/next_step.png" alt="Next Step" className="w-full h-auto rounded-2xl object-cover shadow-2xl" />
             </div>
           </div>
         </div>
